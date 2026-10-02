@@ -1,0 +1,11 @@
+# Build output
+site/
+
+# Build cache
+.cache/
+
+# Local virtual environment
+.venv/
+
+# macOS metadata
+.DS_Store
