@@ -1,0 +1,205 @@
+# Biosoftware in Roihu
+
+!!! abstract "In this tutorial you will learn"
+    - About the `bio-apps` meta module
+    - How to search for applications
+    - How to install Bioconda packages
+
+!!! note
+    Let's imagine that we have some sequencing data that we wish to align to a
+    reference genome and then count how many reads fall into each gene.
+
+## Looking for applications and related modules
+
+1. See the [list of applications in Docs CSC](https://docs.csc.fi/apps/) and
+   look for suitable aligners.
+    - Can you find for example TopHat, STAR, Bowtie and BWA aligners in the list?
+    - Which modules are needed to run these applications?
+
+2. Let's check if the HISAT2 aligner is available:
+
+    ```bash
+    module spider hisat2
+    ```
+
+    !!! warning
+        Not all software installed on CSC's supercomputers has its own documentation
+        page in the application list (yet). They might be new installations or
+        installed by request of a single research group etc.
+
+3. Now check whether you could load it right away:
+
+    ```bash
+    module avail hisat2
+    ```
+
+    - Do you get a match? Compare with the `module spider` output above.
+
+    !!! warning
+        `module avail` lists only modules that are compatible with your
+        *currently loaded* environment, whereas `module spider` searches through
+        all installed modules. Bio applications on Roihu are not visible until
+        you load `bio-apps`.
+
+4. Load the `bio-apps` meta module and check again:
+
+    ```bash
+    module load bio-apps
+    module avail
+    module list
+    ```
+
+    - Can you find HISAT2 now? Which other bio applications became available?
+    - Is HISAT2 itself among the *loaded* modules?
+
+    !!! tip
+        `bio-apps` is a *meta module*: it doesn't load any application itself,
+        it only makes a set of them available for loading.
+
+5. You still need to load the aligner itself:
+
+    ```bash
+    module load hisat2
+    ```
+
+## HTSeq
+
+!!! note
+    Let's imagine you just did a successful aligning of the sequence data, and
+    now want to count how many reads fall into each gene/feature.
+
+!!! warning
+    Unlike many other bio modules, `htseq` is not included in the
+    `bio-apps` meta module.
+
+1. Try searching for the htseq tool by using the `module spider` command:
+
+    ```bash
+    module spider htseq
+    ```
+
+2. Load the module and try to run one of the `htseq` commands:
+
+    ```bash
+    module load htseq
+    htseq-count --help
+    ```
+
+## Extra: Installing packages from Bioconda
+
+Bioconda is a popular Conda channel for bioinformatics software. It provides
+an easy method to install thousands of software packages related to biomedical research.
+Conda environments are, however, problematic on supercomputers with parallel file
+systems since they create too many files. The solution is to use containerized
+environments.
+
+!!! warning
+    Installing software and containers will be discussed more in sections
+    [8](PLACEHOLDER_LINK_TO_INSTALLING)
+    and [9](PLACEHOLDER_LINK_TO_CONTAINERS).
+    Feel free to return to this tutorial later.
+
+1. Look for the MetaBAT2 application like we did above with HTSeq:
+
+    ```bash
+    module spider metabat2
+    ```
+
+2. Check whether MetaBAT2 is available in [Bioconda](https://bioconda.github.io)
+   (type metabat2 in the search field).
+3. All packages in Bioconda have a ready-made Docker container image available.
+   While those images could be pulled and used directly, CSC's
+   [Tykky container wrapper](https://docs.csc.fi/computing/containers/tykky/)
+   provides an easy method to install them so that they are usable without any
+   special container commands.
+4. On the [Bioconda page](https://bioconda.github.io/recipes/metabat2/README.html)
+   find the command to use Docker (don't run it). In this case:
+
+    ```bash
+    docker pull quay.io/biocontainers/metabat2:<tag>
+    ```
+
+5. From the command we need the Docker address:
+
+    ```text
+    quay.io/biocontainers/metabat2
+    ```
+
+6. And from the [tags page](https://quay.io/repository/biocontainers/metabat2?tab=tags)
+   the desired version. In this case we choose the latest (secure) version:
+
+    ```text
+    2.18_23_gc869c52--h61f4f8f_0
+    ```
+
+7. Combine the address and tag to form the Docker URL:
+
+    ```text
+    docker://quay.io/biocontainers/metabat2:2.18_23_gc869c52--h61f4f8f_0
+    ```
+
+8. Clean your environment and load the Tykky container wrapper:
+
+    ```bash
+    module purge
+    module load tykky
+    ```
+
+9. Create a directory for the installation under your project's `/projappl` directory:
+
+    ```bash
+    mkdir -p /projappl/<project>/$USER/metabat-2.18    # replace <project> with your CSC project, e.g. project_2001234
+    ```
+
+10. Wrap the container with:
+
+    ```bash
+    wrap-container -w /usr/local/bin docker://quay.io/biocontainers/metabat2:2.18_23_gc869c52--h61f4f8f_0 --prefix /projappl/<project>/$USER/metabat-2.18    # replace <project> with your CSC project, e.g. project_2001234
+    ```
+
+    !!! warning
+        The `-w` option specifies the installation directory *inside the container*.
+        For containers from Bioconda this is always `/usr/local/bin`.
+
+    !!! warning
+        The `--prefix` option is used to indicate the directory where we want to
+        install the software.
+
+    !!! tip
+        After the installation finishes, the executables of the program will be
+        in the directory `metabat-2.18/bin`. Note that these are not the actual
+        binaries, but rather wrapper scripts for the executables *inside the container*.
+        You can, however, use them as if they were the actual commands.
+
+11. Add the `bin` directory to your `$PATH` as suggested by Tykky. This is analogous
+    to activating the Conda environment in case of a direct Conda installation and
+    allows you to execute commands from anywhere
+    (without providing the full path to the binaries):
+
+    ```bash
+    export PATH="/projappl/<project>/$USER/metabat-2.18/bin:$PATH"    # replace <project> with your CSC project, e.g. project_2001234
+    ```
+
+12. Try opening the help for the `metabat` command:
+
+    ```bash
+    metabat --help
+    ```
+
+!!! info
+    See here
+    [how to install containers from other sources such as the BioContainer registry or local image files](https://docs.csc.fi/support/tutorials/bioconda-tutorial/#containers-from-other-source).
+
+## More information
+
+### Using modules in a batch script
+
+!!! note
+    Make sure to load all necessary modules and export required paths also in your
+    batch scripts before launching any actual commands. It is good practice to start
+    with `module purge` to ensure that you are working in a clean environment.
+
+!!! warning
+    Note that if you are writing a batch script that uses applications from different
+    modules, you should be mindful of the order in which you load (and possibly unload)
+    the modules. Loading one module might automatically replace other ones to avoid conflicts.

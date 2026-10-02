@@ -26,6 +26,20 @@ nav = [
     "disk-areas/main-disk-areas.md",
     "disk-areas/lue.md"
   ]},
+  {
+    "Modules" = [
+    "modules/roihu-modules.md",
+    "modules/roihu-biomodules.md"
+    ]
+  },
+  {
+    "Batch queue system and interactive use" = [
+    "batch-jobs/serial.md",
+    "batch-jobs/parallel.md",
+    "batch-jobs/interactive.md",
+    "batch-jobs/bio-data.md"
+    ]
+  }
 ]
 
 # extra_css = ["stylesheets/extra.css"]
