@@ -74,4 +74,4 @@ made a copy of it named `YourName-first-file.txt`, and now we practice how to ed
     One way to display `.html` files on Roihu is to go through the Allas object storage service.
     After configuring Allas, there's `a-commands` that enable publishing files on the internet.
     This is instructed in the
-    [Allas tutorial](allas-file-transfer.md).
+    [Allas tutorial](../allas/allas-basics.md).

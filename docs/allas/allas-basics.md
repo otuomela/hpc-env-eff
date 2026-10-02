@@ -1,0 +1,183 @@
+# Basic usage of Allas
+
+## Accessing Allas via Allas web interface
+
+1. Log in to Allas web interface: <https://allas.csc.fi>
+2. From the upper-left corner of the interface, select the CSC project you are
+   using on this course.
+3. Create a new bucket by pressing the *+Create Bucket* button.
+    - Name it as `<id>-<username>`, in which `<id>` is the number of your project
+      and `<username>` is your CSC username. Note that you cannot use a bucket
+      name that already exists!
+4. Open the created bucket by clicking it.
+5. Upload one file from your computer into the bucket (any file should do,
+   but prefer a file that you can open in Roihu, e.g. a text file). The upload process
+   starts from the *Upload* button in the upper right corner of the interface.
+
+!!! info
+    During the exercises, you can use this web interface to get another view of your
+    buckets and objects in Allas.
+
+## Accessing Allas from Roihu command-line
+
+### Preparations (if not done already)
+
+1. Log in to `roihu-cpu.csc.fi` (open a login node shell if using the web interface).
+2. In Roihu, check your environment with the command:
+
+    ```bash
+    csc-workspaces
+    ```
+
+3. Move to the scratch directory of your project:
+
+    ```bash
+    cd /scratch/<project>   # replace <project> with your CSC project, e.g. project_2001234
+    ```
+
+4. Create your own subdirectory named as your username (tip! your username is
+   automatically stored in the environment variable `$USER`):
+
+    ```bash
+    mkdir -p $USER
+    cd $USER
+    ```
+
+### Connecting to Allas
+
+1. Open a connection to Allas with these commands:
+
+    ```bash
+    module load allas
+    allas-conf 
+    ```
+
+    !!! tip
+        It might take a while to run `module load allas`.
+
+2. If you have several projects with access to Allas available, select the one
+   where you just created a bucket using the Allas web interface.
+3. Study what you have in Allas with
+   [`a-commands`](https://docs.csc.fi/data/Allas/using_allas/a_commands/) and
+   with [rclone](https://docs.csc.fi/data/Allas/using_allas/rclone/):
+
+    === "a-commands"
+
+        ```bash
+        a-list
+        a-list <id>-$USER             # replace <id> with your CSC project number, e.g. 2001234
+        a-info <id>-$USER/<filename>  # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+        ```
+
+    === "rclone"
+
+        ```bash
+        rclone lsd s3allas:
+        rclone ls s3allas:<id>-$USER
+        rclone lsl s3allas:<id>-$USER
+        rclone lsf s3allas:<id>-$USER
+        rclone cat s3allas:<id>-$USER/<filename>
+        ```
+
+4. Download to Roihu the file that you just uploaded from your local computer
+   to Allas. This can be done in two ways:
+
+    === "a-commands"
+
+        ```bash
+        a-get <id>-$USER/<filename>     # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+        ```
+
+    === "rclone"
+
+        ```bash
+        rclone copy s3allas:<id>-$USER/<filename> ./    # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+        ```
+
+5. Open, edit and rename the file so that you can distinguish it
+   from the original one.
+6. Upload the new file to Allas:
+
+    === "a-commands"
+
+        ```bash
+        a-put -b <id>-$USER <newfilename>   # replace <id> and <newfilename> accordingly
+        ```
+
+        !!! info
+            Try running `a-put -h` to understand the command-line switch
+            above and to find more information on options.
+
+        !!! note
+            With larger text files it is good to include the option `-c`
+            to enable `zstdmt` compression of the files.
+
+    === "rclone"
+
+        ```bash
+        rclone copy <newfilename> s3allas:<id>-$USER/   # replace <newfilename> and <id> accordingly
+        ```
+
+7. Check that the file in Roihu indeed has a counterpart in Allas:
+
+    ```bash
+    a-list <id>-$USER <newfilename>   # replace <id> and <newfilename>
+    ```
+
+8. Locate the files you just uploaded to Allas in the Allas
+   web interface (search for the bucket name).
+
+### Clean up
+
+1. Delete the local file from Roihu:
+
+    ```bash
+    rm <filename>             # replace <filename>
+    ```
+
+2. Whenever you need your data again, you can download it from Allas.
+
+!!! info
+    If you can't find your file but remember the name, try
+    `a-find`. Use `a-find -h` for help.
+
+## Extra: publish a file to the internet
+
+!!! note
+    The `a-commands` include basic tools for publishing files to the internet.
+    You might notice that the course slides use one of these! 🤓
+
+!!! danger
+    Using these commands makes your **entire bucket** public! Don't do this if you
+    don't want that to happen. All files that you `a-put` in the bucket later
+    will also be accessible from the internet, since the *bucket* is accessible.
+
+### Option 1: `a-publish`
+
+1. Select a file with appropriate content and publish it with the command:
+
+    ```bash
+    a-publish -b <id>-$USER <filename>   # replace <id> and <filename>
+    ```
+
+2. The command outputs a URL (public link). Copy it to your browser or
+   send it to your friends 😎
+
+### Option 2: `a-flip`
+
+!!! note
+    `a-flip` is meant for files that need to be published only temporarily,
+    for example for a one-time share.
+
+1. Select a file with appropriate content and publish it with the command:
+
+    ```bash
+    a-flip <filename>         # replace <filename>
+    ```
+
+2. The command outputs a URL (public link). Copy it to your browser or
+   send it to your friends 😎
+
+!!! danger
+    `a-flip` takes just the file name, not the bucket name like many of the
+    previous commands.
