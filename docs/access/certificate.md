@@ -9,7 +9,7 @@
     before one can log in to Roihu after creating a new project and adding services.
 
 !!! note
-    SSH keys and certificates improve security and ease-of-use. They are required
+    SSH keys and certificates improve security and ease of use. They are required
     to be able to log in to Roihu from the terminal using an **SSH client**.
 
 !!! warning
@@ -19,8 +19,8 @@
 !!! danger
     Before starting this tutorial, make sure you have [set up your SSH keys](ssh.md).
 
-An SSH certificate is a proof of a successful two-factor authentication completed at MyCSC.
-**You should never share your certificate with anyone.** Accompanied with your private SSH key,
+An SSH certificate is proof of a successful two-factor authentication completed at MyCSC.
+**You should never share your certificate with anyone.** Together with your private SSH key,
 it can grant anyone access to your account on Roihu.
 
 ## Option 1: Using the CSC certificate helper tool
@@ -43,7 +43,7 @@ it can grant anyone access to your account on Roihu.
         3. If this opens a Python interpreter, you're good to go!
         4. If you get an error, you need to install Python. [Python downloads are available here](https://www.python.org/downloads/).
             - This may require admin privileges, so please be in contact with
-              your local IT-support if necessary.
+              your local IT support if necessary.
             - If Python for some reason cannot be installed on your computer,
               [please proceed with Option 2 instead](#option-2-manually-signing-and-downloading-certificate-in-mycsc).
     3. Optional, but **strongly recommended**: Make sure you have an
@@ -83,7 +83,7 @@ it can grant anyone access to your account on Roihu.
         ```
 
         1. The helper tool opens a MyCSC web page in your browser and you may be requested to authenticate.
-        2. The MyCSC page displays a 6-digit code that you need to enter to the helper tool.
+        2. The MyCSC page displays a 6-digit code that you need to enter into the helper tool.
 
 === "Linux/macOS"
 
@@ -130,7 +130,7 @@ it can grant anyone access to your account on Roihu.
         ```
 
         1. The helper tool opens a MyCSC web page in your browser and you may be requested to authenticate.
-        2. The MyCSC page displays a 6-digit code that you need to enter to the helper tool.
+        2. The MyCSC page displays a 6-digit code that you need to enter into the helper tool.
 
 ## Option 2: Manually signing and downloading certificate in MyCSC
 
@@ -142,7 +142,7 @@ it can grant anyone access to your account on Roihu.
     ![Sign and download SSH certificate](../img/sign-download-ssh-cert.png)
 
 5. **Recommended:** Move `cert.pub` certificate file to the same folder where you store your SSH keys
-   and rename it as `<ssh private key name>-cert.pub`. For example, `id_ed25519-cert.pub`.
+   and rename it to `<ssh private key name>-cert.pub`. For example, `id_ed25519-cert.pub`.
 6. You may now log in to Roihu using an SSH client! [This is covered in the next tutorial](login.md).
 
 ## More information

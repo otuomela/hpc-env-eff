@@ -78,7 +78,7 @@
     #SBATCH --partition=test         # Job queues: test, interactive, small, medium, large, longrun, hugemem, hugemem_longrun
     #SBATCH --ntasks=1               # Number of tasks. Upper limit depends on partition.
     #SBATCH --cpus-per-task=4        # How many processors work on one task. Max: Number of CPUs per node.
- 
+
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     srun hello_omp.x
     ```
@@ -160,7 +160,7 @@
     #SBATCH --partition=test         # Job queues: test, interactive, small, medium, large, longrun, hugemem, hugemem_longrun
     #SBATCH --nodes=2                # Number of compute nodes. Upper limit depends on partition.
     #SBATCH --ntasks-per-node=4      # How many tasks to launch per node. Depends on the number of cores and memory on a node.
-   
+
     srun hello_mpi.x
     ```
 
@@ -217,7 +217,7 @@
 !!! warning
     This example requests 4 cores from each of the 2 nodes. Normally, this would not
     make sense, and instead it would be better to run all 8 cores in the same node
-    (in Roihu one node has 384 cores!). Typically, you want your resources (cores)
+    (on Roihu one node has 384 cores!). Typically, you want your resources (cores)
     to be spread across as few nodes as possible to avoid unnecessary communication
     between nodes.
 

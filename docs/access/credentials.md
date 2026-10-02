@@ -82,7 +82,7 @@
     4. [LUMI](https://docs.csc.fi/accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects)
        – Projects restricted to LUMI environment. Fixed time and resources. Read the
        [prerequisites for and responsibilities of a project manager](https://research.csc.fi/terms-of-use/prerequisites-for-a-project-manager/).
-    5. Commercial – Reserved for projects outside of CSC's free of charge use policy.
+    5. Commercial – Reserved for projects outside of CSC's free-of-charge use policy.
        Only available through [CSC Service Desk](https://docs.csc.fi/support/contact/).
 
 !!! tip

@@ -100,7 +100,7 @@
   
     ```bash
     wget https://a3s.fi/CSC_training/shared_files.tar.gz
-    tar -xavf shared_files.tar.gz
+    tar -xzvf shared_files.tar.gz
     cd shared_files
     ```
 

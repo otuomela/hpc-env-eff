@@ -3,7 +3,7 @@
 ## Preparations (if not done already)
 
 1. Log in to `roihu-cpu.csc.fi` (open a login node shell if using the web interface).
-2. In Roihu, check your environment with the command:
+2. On Roihu, check your environment with the command:
 
     ```bash
     csc-workspaces

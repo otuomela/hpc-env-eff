@@ -1,4 +1,4 @@
-# Modules in Roihu
+# Modules on Roihu
 
 !!! warning
     This tutorial requires that you have a
@@ -36,15 +36,15 @@
 !!! tip
     It is always a good idea to start by checking
     [the application list in Docs CSC](https://docs.csc.fi/apps/)
-    to see whether this application is installed in Roihu and how to use it.
+    to see whether this application is installed on Roihu and how to use it.
 
 1. Check out the [GROMACS page](https://docs.csc.fi/apps/gromacs/).
 2. Skim through the documentation and verify that the license allows you
    to use the software.
 3. Check which module command you need to run to be able to
-   load GROMACS in Roihu.
-4. Back on the command-line, check which GROMACS versions are available
-   in Roihu:
+   load GROMACS on Roihu.
+4. Back on the command line, check which GROMACS versions are available
+   on Roihu:
 
     ```bash
     module spider gromacs
@@ -67,7 +67,7 @@
 
     !!! tip
         Another quick way to list the available versions is by typing
-        the load command until the module name and then hit `TAB` twice:
+        the load command up to the module name and then hitting `TAB` twice:
 
         ```text
         $ module load gromacs # and here double press TAB
@@ -105,7 +105,7 @@
     module list
     ```
 
-    !!! warning
+    !!! tip
         It is generally best to use the latest versions since they are
         typically more performant than old ones and may have useful new features.
 
@@ -157,7 +157,7 @@
 
 ## More information
 
-- If actually using GROMACS in Roihu, you would run the application as a batch job
+- If actually using GROMACS on Roihu, you would run the application as a batch job
   through the queueing system, which will be discussed in detail later.
 - Check out an [example batch job script for GROMACS](https://docs.csc.fi/apps/gromacs/)
   to see how the module is recommended to be loaded

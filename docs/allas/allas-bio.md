@@ -22,7 +22,7 @@ using the Roihu web interface.
     ssh <username>@roihu-cpu.csc.fi    # replace <username> with your CSC username
     ```
 
-2. In Roihu, check your environment with the command:
+2. On Roihu, check your environment with the command:
 
     ```bash
     csc-workspaces
@@ -48,9 +48,9 @@ using the Roihu web interface.
 
 ## 2. Download data with `wget`
 
-1. Next, download a dataset and uncompress it
+1. Next, download a dataset and uncompress it:
 
-    - The dataset contains some pythium genomes with related BWA indexes
+    - The dataset contains some *Pythium* genomes with related BWA indexes
 
     ```bash
     wget https://a3s.fi/course_12.11.2019/pythium.tgz
@@ -67,7 +67,7 @@ using the Roihu web interface.
     allas-conf
     ```
 
-2. If you have several Allas projects available, select the same project as earlier
+2. If you have several Allas projects available, select the same project as earlier.
 
 ### Upload case 1: `rclone`
 
@@ -96,7 +96,7 @@ using the Roihu web interface.
 4. In the Roihu web interface, go to the _Files_ app and select `s3allas-project_<id>`
    to list the buckets of your project (replace `<id>` as needed).
 5. Locate your own `$USER-genomes-rc` bucket and download one of the uploaded
-   files to your local computer
+   files to your local computer.
 
 !!! tip
     You can read more about moving files at Docs CSC:
@@ -161,7 +161,7 @@ using the Roihu web interface.
     a-flip pythium/Pythium_vexans/Pythium_vexans.amb
     ```
 
-11. Try opening the public link that `a-flip` produced with your browser
+11. Try opening the public link that `a-flip` produced with your browser.
 
 <!-- commented out because allas-backup currently works only with the swift
      protocol, which is not compatible with the other methods
@@ -197,7 +197,7 @@ using the Roihu web interface.
     cd /scratch/<project>/$USER   # replace <project> with your CSC project, e.g. project_2001234
     ```
 
-2. In Roihu, check your projects with the command:
+2. On Roihu, check your projects with the command:
 
     ```bash
     csc-workspaces

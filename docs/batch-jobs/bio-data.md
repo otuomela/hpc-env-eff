@@ -63,7 +63,7 @@
     ls
     ```
 
-## 2. Downloading data with NCBI edirect
+## 2. Downloading data with NCBI EDirect
 
 1. Create directory `cellulose_synthase` and move to this new directory:
 
@@ -72,7 +72,7 @@
     cd cellulose_synthase
     ```
 
-2. Next we use the [NCBI edirect tool](https://docs.csc.fi/apps/edirect/)
+2. Next we use the [NCBI EDirect tool](https://docs.csc.fi/apps/edirect/)
    to retrieve some data:
 
     ```bash

@@ -9,7 +9,7 @@
     before one can log in to Roihu after creating a new project and adding services.
 
 !!! note
-    SSH keys and certificates improve security and ease-of-use. They are required to
+    SSH keys and certificates improve security and ease of use. They are required to
     be able to log in to Roihu from the terminal using an **SSH client**.
 
 !!! warning

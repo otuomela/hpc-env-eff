@@ -11,19 +11,19 @@
       name that already exists!
 4. Open the created bucket by clicking it.
 5. Upload one file from your computer into the bucket (any file should do,
-   but prefer a file that you can open in Roihu, e.g. a text file). The upload process
+   but prefer a file that you can open on Roihu, e.g. a text file). The upload process
    starts from the *Upload* button in the upper right corner of the interface.
 
 !!! info
     During the exercises, you can use this web interface to get another view of your
     buckets and objects in Allas.
 
-## Accessing Allas from Roihu command-line
+## Accessing Allas from the Roihu command line
 
 ### Preparations (if not done already)
 
 1. Log in to `roihu-cpu.csc.fi` (open a login node shell if using the web interface).
-2. In Roihu, check your environment with the command:
+2. On Roihu, check your environment with the command:
 
     ```bash
     csc-workspaces
@@ -118,7 +118,7 @@
         rclone copy <newfilename> s3allas:<id>-$USER/   # replace <newfilename> and <id> accordingly
         ```
 
-7. Check that the file in Roihu indeed has a counterpart in Allas:
+7. Check that the file on Roihu indeed has a counterpart in Allas:
 
     ```bash
     a-list <id>-$USER <newfilename>   # replace <id> and <newfilename>

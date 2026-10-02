@@ -10,7 +10,7 @@
 
 !!! danger
     In order to
-    [log in with SSH from the command-line](#connecting-with-ssh-from-the-command-line),
+    [log in with SSH from the command line](#connecting-with-ssh-from-the-command-line),
     you must have also set up SSH keys and uploaded your public key to MyCSC.
     [See the previous tutorial](ssh.md).
 
@@ -24,7 +24,7 @@
 2. Log in with your CSC account (or Haka/Virtu)
 3. You have now connected to Roihu!
 
-The Roihu web interface landing page looks like this:  
+The Roihu web interface landing page looks like this:
 
 ![Roihu web interface](../img/ood.png)
 
@@ -32,7 +32,7 @@ The Roihu web interface landing page looks like this:
     From the pinned apps and top menus you can, for example, access your files
     and open some applications or a command-line interface.
 
-## Connecting with SSH from the command-line
+## Connecting with SSH from the command line
 
 !!! danger
     Roihu has separate login nodes for CPU and GPU usage. This tutorial assumes that
@@ -137,10 +137,10 @@ The Roihu web interface landing page looks like this:
                     AddKeysToAgent yes
                 ```
 
-Scroll down to [In Roihu](#in-roihu).
+Scroll down to [On Roihu](#on-roihu).
 
 
-## In Roihu
+## On Roihu
 
 1. If you're connecting to Roihu (or a specific Roihu login node) for the first time,
    SSH will ask you if you trust the authenticity of the host:
@@ -195,7 +195,7 @@ Scroll down to [In Roihu](#in-roihu).
     ```
 
 5. Now, you're ready to go!
-6. Let's do our first small task in Roihu: let's check our projects and that we have one with access to Allas service!
+6. Let's do our first small task on Roihu: let's check our projects and that we have one with access to Allas service!
 
     ```bash
     csc-projects

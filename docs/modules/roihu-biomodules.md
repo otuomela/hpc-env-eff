@@ -1,4 +1,4 @@
-# Biosoftware in Roihu
+# Biosoftware on Roihu
 
 !!! abstract "In this tutorial you will learn"
     - About the `bio-apps` meta module
@@ -22,7 +22,7 @@
     module spider hisat2
     ```
 
-    !!! warning
+    !!! note
         Not all software installed on CSC's supercomputers has its own documentation
         page in the application list (yet). They might be new installations or
         installed by request of a single research group etc.
@@ -65,7 +65,7 @@
 ## HTSeq
 
 !!! note
-    Let's imagine you just did a successful aligning of the sequence data, and
+    Let's imagine you just successfully aligned the sequence data, and
     now want to count how many reads fall into each gene/feature.
 
 !!! warning
@@ -157,11 +157,11 @@ environments.
     wrap-container -w /usr/local/bin docker://quay.io/biocontainers/metabat2:2.18_23_gc869c52--h61f4f8f_0 --prefix /projappl/<project>/$USER/metabat-2.18    # replace <project> with your CSC project, e.g. project_2001234
     ```
 
-    !!! warning
+    !!! note
         The `-w` option specifies the installation directory *inside the container*.
         For containers from Bioconda this is always `/usr/local/bin`.
 
-    !!! warning
+    !!! note
         The `--prefix` option is used to indicate the directory where we want to
         install the software.
 

@@ -44,9 +44,9 @@
     !!! tip
         You can list your projects with `csc-projects`
 
-2. You should see that the command prompt (initial text on each row on the command-line)
+2. You should see that the command prompt (initial text on each row on the command line)
    has changed from e.g. `roihu-cpu-login3` to e.g. `rc5183`, which refers to a compute node.
-3. Once on the compute node, you can run commands directly from the command-line without
+3. Once on the compute node, you can run commands directly from the command line without
    `srun`. You can e.g. load the `python-data` module
    (e.g. for running Python scripts interactively on Roihu):
 
