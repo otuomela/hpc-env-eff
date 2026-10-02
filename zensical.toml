@@ -30,16 +30,18 @@ nav = [
     "Modules" = [
     "modules/roihu-modules.md",
     "modules/roihu-biomodules.md"
-    ]
-  },
+  ]},
   {
     "Batch queue system and interactive use" = [
     "batch-jobs/serial.md",
     "batch-jobs/parallel.md",
     "batch-jobs/interactive.md",
     "batch-jobs/bio-data.md"
-    ]
-  }
+  ]},
+  { "Batch job resource usage" = [
+    "batch-resources/sacct-seff-tutorial.md",
+    "batch-resources/sacct-seff-exercise.md"
+  ]}
 ]
 
 # extra_css = ["stylesheets/extra.css"]
