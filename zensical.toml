@@ -1,14 +1,21 @@
 [project]
-site_url = "https://www.example.com/"
-site_name = "Documentation"
-# site_description = "Your project description"
-# site_author = "Your name"
+site_url = "PLACEHOLDER"
+site_name = "HPC Computing Environment"
+site_description = "Self-learning materials for CSC supercomputers"
+site_author = "CSC – IT Center for Science Ltd."
 
-# copyright = "Copyright &copy; 2026 Your name"
+copyright = """
+Copyright &copy; 2020–2026 CSC – IT Center for Science Ltd.
+This work is licensed under a
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+Attribution-ShareAlike 4.0 International License</a>.
+This project has received funding from the European High-Performance Computing
+Joint Undertaking (EuroHPC JU) under grant agreements No 951732 and 101101903.
+"""
 
-# repo_url = "https://github.com/user/repo"
-# repo_name = "user/repo"
-# edit_uri = "edit/main/docs/"
+repo_url = "PLACEHOLDER"
+repo_name = "PLACEHOLDER"
+edit_uri = "edit/main/docs/"
 
 nav = [
   { "Home" = "index.md" },
@@ -41,6 +48,11 @@ nav = [
   { "Batch job resource usage" = [
     "batch-resources/sacct-seff-tutorial.md",
     "batch-resources/sacct-seff-exercise.md"
+  ]},
+  { "Allas" = [
+    "allas/allas-basics.md",
+    "allas/allas-backup.md",
+    "allas/allas-bio.md"
   ]}
 ]
 
