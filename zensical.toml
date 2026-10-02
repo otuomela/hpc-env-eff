@@ -53,6 +53,12 @@ nav = [
     "allas/allas-basics.md",
     "allas/allas-backup.md",
     "allas/allas-bio.md"
+  ]},
+  { "Working efficiently with data" = [
+    "data-io/fastdisks.md",
+    "data-io/allas-batch-jobs.md",
+    "data-io/local-rclone.md",
+    "data-io/local-disks.md"
   ]}
 ]
 
