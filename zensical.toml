@@ -1,5 +1,5 @@
 [project]
-site_url = "PLACEHOLDER"
+site_url = "https://otuomela.github.io/hpc-env-eff/"
 site_name = "HPC Computing Environment"
 site_description = "Self-learning materials for CSC supercomputers"
 site_author = "CSC – IT Center for Science Ltd."
@@ -13,8 +13,8 @@ This project has received funding from the European High-Performance Computing
 Joint Undertaking (EuroHPC JU) under grant agreements No 951732 and 101101903.
 """
 
-repo_url = "PLACEHOLDER"
-repo_name = "PLACEHOLDER"
+repo_url = "https://github.com/otuomela/hpc-env-eff/"
+repo_name = "otuomela/hpc-env-eff"
 edit_uri = "edit/main/docs/"
 
 nav = [
