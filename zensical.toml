@@ -59,7 +59,18 @@ nav = [
     "data-io/allas-batch-jobs.md",
     "data-io/local-rclone.md",
     "data-io/local-disks.md"
-  ]}
+  ]},
+  {
+    "Installing own software" = [
+    "installing/binary.md",
+    "installing/python.md",
+    "installing/r.md",
+    "installing/c.md",
+    "installing/perl.md",
+    "installing/java.md",
+    "installing/cmake.md",
+    ]
+  }
 ]
 
 # extra_css = ["stylesheets/extra.css"]

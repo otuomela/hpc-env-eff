@@ -1,0 +1,129 @@
+# R on Roihu and package installations
+
+!!! abstract "In this tutorial you will learn"
+
+    - How to load the r-env module
+    - How to install R packages
+
+:point_up_tone1:
+This tutorial is done on **Roihu**, which requires that:
+
+- You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
+- Your account belongs to a project [that has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+
+:speech_balloon:
+A pre-installed R environment is available on Roihu.
+
+1. To check available module versions, run:
+
+    ``` bash
+    module spider r-env
+    ```
+
+2. There are several ways to use R in `r-env` on Roihu:
+    - Interactive jobs on a compute node, using either the R console or RStudio  
+
+        :bulb:
+        The easiest way to launch RStudio is to use the Roihu web interface at
+        [www.roihu.csc.fi](https://www.roihu.csc.fi/)
+
+    - Non-interactive batch jobs
+    - Interactively on the login node, using the R console (**only** for moving
+     data, checking package availability, installing packages)
+
+    For example, to launch the R console in an interactive job, open a shell
+    with `sinteractive` and then
+
+    ``` bash
+    module load r-env
+    start-r
+    ```
+
+:bulb:
+See the [r-env documentation](https://docs.csc.fi/apps/r-env/) for further
+instructions on different ways to launch R on Roihu.
+
+:speech_balloon:
+It is also possible to
+[install R packages yourself](https://docs.csc.fi/apps/r-env/#r-package-installations).
+
+:point_up_tone1:
+However, check first if what you need is already available in `r-env`. The
+module contains more than 1300 R packages! The easiest way to check if a
+package is available is trying to load it with the command
+`library(packagename)`.
+
+## How to install an R package on Roihu
+
+- Note that your own package installations are:
+    - project specific
+    - R version specific
+    - located in the `/projappl` directory of your project
+
+1. Create a folder for your R packages in `/projappl` (open a login node shell
+   in the [Roihu web interface](https://www.roihu.csc.fi/) or log in to Roihu
+   with SSH):
+
+    ``` bash
+    cd /projappl/<project>  # replace <project> with your CSC project, e.g. project_2001234
+    mkdir project_rpackages_<rversion>
+    ```
+
+2. Start an R session:
+    1. Launch RStudio in the [Roihu web interface](https://www.roihu.csc.fi/)
+    2. ... or launch the R console in an interactive shell session:
+
+        ```bash
+        sinteractive 
+        module load r-env
+        start-r
+        ```
+
+3. In R, add the folder you created above to the list of directories where R
+   will look for packages:
+
+    ```r
+    .libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths())) 
+    ```
+
+4. Assign `libpath` to point to this directory (not strictly necessary, but can
+   make life easier):
+
+    ```r
+    libpath <- .libPaths()[1]
+    ```
+
+5. Install the package (again, defining `lib = libpath` to specify the
+   installation location is not strictly necessary, but recommended):
+
+    ```r
+    install.packages("packagename", lib = libpath)
+    ```
+
+6. For example, you can try installing a package called `beepr` with:
+
+    ```r
+    install.packages("beepr", lib = libpath)
+    ```
+
+7. Finished! The R package is now ready to be loaded and used. Try loading
+   `beepr` with `library(beepr)`.
+
+:bulb:
+The package location is defined only for the current R session! R has to be
+reminded of the location at the start of every R session or script where you
+want to use the project-specific package by running this command again:
+
+```r
+.libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths())) 
+```
+
+:bulb:
+Instead of installing a missing package for your own project, you can ask
+for a module-wide installation for all users by contacting
+[CSC Service Desk](mailto:servicedesk@csc.fi).
+
+## More information
+
+- Docs CSC: Read more about using R on Roihu in our
+[r-env documentation](https://docs.csc.fi/apps/r-env/).
