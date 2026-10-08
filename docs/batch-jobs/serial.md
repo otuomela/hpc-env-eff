@@ -1,32 +1,32 @@
 # Serial batch jobs
 
-!!! abstract "In this tutorial"
-    We'll get familiar with the basic usage of the Slurm batch queue system at CSC
+!!! abstract "In this tutorial you will learn"
+    
+    - How to use the Slurm job scheduling system for serial jobs
+    - How to request resources that **match** the needs of a serial job
 
-    - The goal is to learn how to request resources that **match** the needs of a job
+:speech_balloon:
+A batch job consists of two parts: resource requests and the job step(s)
 
-!!! note
-    A batch job consists of two parts: resource requests and the job step(s)
-
-!!! warning
-    Examples are done on Roihu. If using the web interface, open a login node shell.
+:point_up_tone1:
+Examples are done on Roihu. If using the web interface, open a login node shell.
 
 ## Serial jobs
 
-!!! note
-    A serial program can only use one core (CPU)
+:speech_balloon:
+A serial program can only use one core (CPU)
 
-    - One should request only a single core from Slurm
-    - The job does not benefit from additional cores
-    - Excess cores are wasted since they will not be available to other users
+- One should request only a single core from Slurm
+- The job does not benefit from additional cores
+- Excess cores are wasted since they will not be available to other users
 
-    Within the job (or allocation), the actual program is launched using the
-    command `srun`
+Within the job (or allocation), the actual program is launched using the
+command `srun`
 
-!!! warning
-    If you use software that is pre-installed by CSC, please
-    [check its documentation page](https://docs.csc.fi/apps/);
-    it might have a batch job example with useful default settings.
+:point_up_tone1:
+If you use software that is pre-installed by CSC, please
+[check its documentation page](https://docs.csc.fi/apps/);
+it might have a batch job example with useful default settings.
 
 ### Launching a serial job
 
@@ -39,14 +39,14 @@
     - Now your input (and output) will be on a shared disk that is accessible
       to the compute nodes.
 
-    !!! tip
-        You can list your projects with `csc-projects`
+    :bulb:
+    You can list your projects with `csc-projects`
 
-    !!! tip
-        If you're using a project with other members (like the course project),
-        first make a subdirectory for yourself
-        (e.g. `mkdir $USER`) and then move there (`cd $USER`), so you don't
-        clutter the `/scratch` root of your project.
+    :bulb:
+    If you're using a project with other members (like the course project),
+    first make a subdirectory for yourself
+    (e.g. `mkdir $USER`) and then move there (`cd $USER`), so you don't
+    clutter the `/scratch` root of your project.
 
 2. Create a file called `my_serial.bash` e.g. with the `nano` text editor:
 
@@ -75,18 +75,20 @@
     squeue -u $USER
     ```
 
-!!! note
-    In the batch job example above we are requesting
+:speech_balloon:
+In the batch job example above we are requesting
 
-    - one core (`--ntasks=1`)
-    - for two minutes (`--time=00:02:00`)
-    - from the test queue (`--partition=test`)
+- one core (`--ntasks=1`)
+- for two minutes (`--time=00:02:00`)
+- from the test queue (`--partition=test`)
 
-    We want to run the program `hostname` that will print the name of the
-    Roihu compute node that has been allocated for this particular job
+:speech_balloon:
+We want to run the program `hostname` that will print the name of the
+Roihu compute node that has been allocated for this particular job
 
-    In addition, we are running the `sleep` program to keep the job running
-    for an additional 60 seconds, in order to have time to monitor the job
+:speech_balloon:
+In addition, we are running the `sleep` program to keep the job running
+for an additional 60 seconds, in order to have time to monitor the job
 
 #### Checking the output and the efficiency
 
@@ -95,11 +97,12 @@
 - Check the efficiency of the job compared to the reserved resources by issuing
   the command `seff <jobid>` (replace `<jobid>` with the actual Slurm job ID)
 
-!!! info
-    You can get a list of all your jobs that are running or queuing with the command
-    `squeue -u $USER`
+:thought_balloon:
+You can get a list of all your jobs that are running or queuing with the command
+`squeue -u $USER`
 
-    A submitted job can be cancelled using the command `scancel <jobid>`
+:anger_right:
+A submitted job can be cancelled using the command `scancel <jobid>`
 
 ## More information
 

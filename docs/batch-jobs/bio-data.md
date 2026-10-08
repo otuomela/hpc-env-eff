@@ -1,8 +1,9 @@
-# Exercise: Retrieving data from bio data repositories (Roihu)
+# Retrieving data from bio data repositories (Roihu)
 
-!!! abstract
-    This exercise covers retrieving data from various commonly used bio
-    data repositories.
+!!! abstract "In this tutorial you will learn"
+    
+    - How to retrieve data from various commonly used bio
+      data repositories.
 
 1. We will do these exercises in an interactive session launched using the
    [sinteractive](https://docs.csc.fi/computing/running/interactive-usage/)
@@ -21,9 +22,9 @@
     module load bio-apps
     ```
 
-    !!! warning
-        `bio-apps` only makes the bio applications available, but each one
-        still has to be loaded separately.
+    :point_up_tone1:
+    `bio-apps` only makes the bio applications available, but each one
+    still has to be loaded separately.
 
 4. Create a directory for yourself under the `/scratch` directory of
    your project and move there:
@@ -33,20 +34,20 @@
     cd /scratch/<project>/$USER         # replace <project> with your CSC project, e.g. project_2001234
     ```
 
-!!! info
-    Everyone in a project shares the same `/scratch` directory, so it is a
-    good idea to use subdirectories for each user and task to avoid accidentally
-    deleting or overwriting others' files.
+:thought_balloon:
+Everyone in a project shares the same `/scratch` directory, so it is a
+good idea to use subdirectories for each user and task to avoid accidentally
+deleting or overwriting others' files.
 
-!!! warning
-    In normal usage it may be a good idea to use the `chmod` command to alter file
-    access rights so that only you have write access to your own subfolder, but
-    please do not do this if you are using a CSC course project, as it will make
-    clean-up after the course harder.
+:anger_right:
+In normal usage it may be a good idea to use the `chmod` command to alter file
+access rights so that only you have write access to your own subfolder, but
+please do not do this if you are using a CSC course project, as it will make
+clean-up after the course harder.
 
-!!! tip
-    You can find more information about this on the
-    [Disk areas page in Docs CSC](https://docs.csc.fi/computing/roihu-disk/).
+:bulb:
+You can find more information about this on the
+[Disk areas page in Docs CSC](https://docs.csc.fi/computing/roihu-disk/).
 
 ## 1. Downloading data with `curl`
 

@@ -1,48 +1,49 @@
 # Parallel batch jobs
 
-!!! abstract "In this tutorial"
-    We'll get familiar with the basic usage of the Slurm batch queue system at CSC
+!!! abstract "In this tutorial you will learn"
 
-    - The goal is to learn how to request resources that **match** the needs of a job
+    - How to use the Slurm job scheduling system for parallel jobs
+    - How to request resources that **match** the needs of a parallel job
 
-!!! note
-    A batch job consists of two parts: resource requests and the job step(s)
+:speech_balloon:
+A batch job consists of two parts: resource requests and the job step(s)
 
-!!! warning
-    Examples are done on Roihu. If using the web interface, open a login node shell.
+:point_up_tone1:
+Examples are done on Roihu. If using the web interface, open a login node shell.
 
 ## Parallel jobs
 
-!!! note
-    A parallel program is capable of utilizing several cores and other resources
-    simultaneously for the same job
+:speech_balloon:
+A parallel program is capable of utilizing several cores and other resources
+simultaneously for the same job
 
-    The aim of a parallel program is to solve a problem (job) faster and to tackle
-    larger problems that would be intractable to run on a single core
+:speech_balloon:
+The aim of a parallel program is to solve a problem (job) faster and to tackle
+larger problems that would be intractable to run on a single core
 
-!!! tip
-    There are two major approaches to dividing a computational burden over several cores:
+:bulb:
+There are two major approaches to dividing a computational burden over several cores:
 
-    - [OpenMP](https://en.wikipedia.org/wiki/OpenMP)
-    - [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface)
+- [OpenMP](https://en.wikipedia.org/wiki/OpenMP)
+- [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface)
 
-!!! warning
-    Depending on the parallel program and the type of job, the optimal resource
-    request is often difficult to predict beforehand. Always start small and scale
-    up gradually! Don't run on 1000 cores unless you're sure your program can use
-    each of them efficiently.
+:point_up_tone1:
+Depending on the parallel program and the type of job, the optimal resource
+request is often difficult to predict beforehand. Always start small and scale
+up gradually! Don't run on 1000 cores unless you're sure your program can use
+each of them efficiently.
 
-!!! warning
-    You need to have an MPI module loaded when running parallel batch jobs.
-    If you get an error saying `error while loading shared libraries: libmpi.so.40:
-    cannot open shared object file: No such file or directory`, try `module load StdEnv`
-    to load the default environment (or load a specific MPI module, e.g. `openmpi`).
+:point_up_tone1:
+You need to have an MPI module loaded when running parallel batch jobs.
+If you get an error saying `error while loading shared libraries: libmpi.so.40:
+cannot open shared object file: No such file or directory`, try `module load StdEnv`
+to load the default environment (or load a specific MPI module, e.g. `openmpi`).
 
 ### A simple OpenMP job
 
-!!! note
-    An OpenMP-enabled program can take advantage of multiple cores that share the
-    same memory on a **single node**, a.k.a. _threads_
+:speech_balloon:
+An OpenMP-enabled program can take advantage of multiple cores that share the
+same memory on a **single node**, a.k.a. _threads_
 
 1. Go to your personal folder under the `/scratch` directory of your project:
 
@@ -53,8 +54,8 @@
     - Now your input (and output) will be on a shared disk that is accessible to
       the compute nodes.
 
-    !!! tip
-        You can list your projects with `csc-projects`
+    :bulb:
+    You can list your projects with `csc-projects`
 
 2. Download a simple program parallelized with OpenMP:
 
@@ -89,27 +90,29 @@
     sbatch my_parallel_omp.bash
     ```
 
-!!! note
-    In the batch job example above we are requesting
+:speech_balloon:
+In the batch job example above we are requesting
 
-    - resources for one OpenMP job (`--ntasks=1`)
-    - using four cores (threads) per task (`--cpus-per-task=4`)
-    - for ten seconds (`--time=00:00:10`)
-    - from the test queue (`--partition=test`)
+- resources for one OpenMP job (`--ntasks=1`)
+- using four cores (threads) per task (`--cpus-per-task=4`)
+- for ten seconds (`--time=00:00:10`)
+- from the test queue (`--partition=test`)
 
-    We want to run the program `hello_omp.x` that will be able to utilize four cores
+:speech_balloon:
+We want to run the program `hello_omp.x` that will be able to utilize four cores
 
-!!! info
-    Exporting the environment variable `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK` will tell
-    the program that it can use four threads
+:thought_balloon:
+Exporting the environment variable `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK` will tell
+the program that it can use four threads
 
-    Each of the four threads launched by `hello_omp.x` will print their own output
+:anger_right:
+Each of the four threads launched by `hello_omp.x` will print their own output
 
 #### Check the output
 
-!!! note
-    When finished, the output file `slurm-<jobid>.out` should contain the results
-    printed from each of the four OpenMP threads
+:speech_balloon:
+When finished, the output file `slurm-<jobid>.out` should contain the results
+printed from each of the four OpenMP threads
 
 1. Check which files exist in the folder:
 
@@ -134,9 +137,9 @@
 
 ### A simple MPI job
 
-!!! note
-    An MPI-enabled program can take advantage of resources that are spread over multiple
-    compute nodes
+:speech_balloon:
+An MPI-enabled program can take advantage of resources that are spread over multiple
+compute nodes
 
 1. Download a simple program parallelized with MPI:
 
@@ -170,25 +173,27 @@
     sbatch my_parallel.bash
     ```
 
-!!! note
-    In the batch job example above we are requesting
+:speech_balloon:
+In the batch job example above we are requesting
 
-    - resources from two nodes (`--nodes=2`)
-    - four cores from each node (`--ntasks-per-node=4`)
-    - for ten seconds (`--time=00:00:10`)
-    - from the test queue (`--partition=test`)
+- resources from two nodes (`--nodes=2`)
+- four cores from each node (`--ntasks-per-node=4`)
+- for ten seconds (`--time=00:00:10`)
+- from the test queue (`--partition=test`)
 
-    We want to run the program `hello_mpi.x` that will, based on the resource request,
-    start 8 simultaneous tasks
+:speech_balloon:
+We want to run the program `hello_mpi.x` that will, based on the resource request,
+start 8 simultaneous tasks
 
-    Each of the 8 tasks launched by `hello_mpi.x` will report their number and on
-    which node they ran
+:speech_balloon:
+Each of the 8 tasks launched by `hello_mpi.x` will report their number and on
+which node they ran
 
 #### Check the output and the efficiency
 
-!!! note
-    When finished, the output file `slurm-<jobid>.out` will contain the results from
-    the `hello_mpi.x` program on how the 8 tasks were distributed over the two reserved nodes
+:speech_balloon:
+When finished, the output file `slurm-<jobid>.out` will contain the results from
+the `hello_mpi.x` program on how the 8 tasks were distributed over the two reserved nodes
 
 1. Check the output with:
 
@@ -214,19 +219,20 @@
 4. Check the efficiency of the job compared to the reserved resources by issuing
    the command `seff <jobid>` (replace `<jobid>` with the actual Slurm job ID)
 
-!!! warning
-    This example requests 4 cores from each of the 2 nodes. Normally, this would not
-    make sense, and instead it would be better to run all 8 cores in the same node
-    (on Roihu one node has 384 cores!). Typically, you want your resources (cores)
-    to be spread across as few nodes as possible to avoid unnecessary communication
-    between nodes.
+:anger_right:
+This example requests 4 cores from each of the 2 nodes. Normally, this would not
+make sense, and instead it would be better to run all 8 cores in the same node
+(on Roihu one node has 384 cores!). Typically, you want your resources (cores)
+to be spread across as few nodes as possible to avoid unnecessary communication
+between nodes.
 
 ## More information
 
 - [FAQ on CSC batch jobs](https://docs.csc.fi/support/faq/#batch-jobs) in Docs CSC
 
-!!! info
-    You can get a list of all your jobs that are running or queuing with the command
-    `squeue -u $USER`
+:thought_balloon:
+You can get a list of all your jobs that are running or queuing with the command
+`squeue -u $USER`
 
-    A submitted job can be cancelled using the command `scancel <jobid>`
+:thought_balloon:
+A submitted job can be cancelled using the command `scancel <jobid>`
