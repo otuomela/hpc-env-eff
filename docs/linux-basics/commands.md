@@ -1,15 +1,19 @@
 # Basic commands
 
-!!! danger
-    To begin, make sure you have a
-    [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
-    that is a member of a project which
-    [has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+!!! abstract "In this tutorial you will learn"
 
-!!! warning
-    You should also have already
-    [logged in to Roihu with SSH](../access/login.md)
-    or via the Roihu web interface (and opened a login node shell).
+    - How to use basic Linux commands
+
+:bangbang:
+To begin, make sure you have a
+[user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
+that is a member of a project which
+[has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+
+:point_up_tone1:
+You should also have already
+[logged in to Roihu with SSH](../access/login.md)
+or via the Roihu web interface (and opened a login node shell).
 
 ## Navigating folders
 
@@ -38,9 +42,9 @@
     cd YourNameTestFolder       # replace YourName
     ```
 
-!!! tip
-    If you just type `cd` and the first letter of the folder name, then hit `tab` key,
-    the terminal completes the name. Handy!
+:bulb:
+If you just type `cd` and the first letter of the folder name, then hit `tab` key,
+the terminal completes the name. Handy!
 
 ## Exploring files
 
@@ -64,9 +68,9 @@
 
 4. To exit the `less` preview of the file, hit `q`.
 
-    !!! tip 
-        Instead of `less` you can use `cat` which prints the content of the file(s) straight
-        into the command line. For long texts `less` is recommended.
+    :bulb:
+    Instead of `less` you can use `cat` which prints the content of the file(s) straight
+    into the command line. For long texts `less` is recommended.
 
 5. Make a copy of this file:
 
@@ -83,19 +87,19 @@
     ls
     ```
 
-!!! tip
-    If you don't want to have duplicate files you can use `mv` to 'move/rename' the file.
-    Syntax is the same: `mv /path/to/source/oldname /path/to/destination/newname`.
+:bulb:
+If you don't want to have duplicate files you can use `mv` to 'move/rename' the file.
+Syntax is the same: `mv /path/to/source/oldname /path/to/destination/newname`.
 
 ## More information
 
 - Learn [how to edit that file](file-editing.md) in the next tutorial!
 
-!!! tip
-    For more information about a given `command`, type `man command` or `command --help`
-    where `command` is replaced with the one that you need help with.
+:bulb:
+For more information about a given `command`, type `man command` or `command --help`
+where `command` is replaced with the one that you need help with.
 
-!!! tip
-    If you remember *a part of a command* that you have used recently you can search for it with the
-    command `history | grep string`. This will show all your used commands that have included the
-    string `string` (replace this with the pattern you are searching for).
+:bulb:
+If you remember *a part of a command* that you have used recently you can search for it with the
+command `history | grep string`. This will show all your used commands that have included the
+string `string` (replace this with the pattern you are searching for).

@@ -1,23 +1,27 @@
 # Basic file editing
 
-!!! danger
-    To begin, make sure you have a
-    [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
-    that is a member of a project which
-    [has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+!!! abstract "In this tutorial you will learn"
 
-!!! warning
-    You should also have already
-    [logged in to Roihu with SSH](../access/login.md).
+    - How to edit files with the command line
+
+:bangbang:
+To begin, make sure you have a
+[user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
+that is a member of a project which
+[has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+
+:point_up_tone1:
+You should also have already
+[logged in to Roihu with SSH](../access/login.md).
 
 In the [previous tutorial](commands.md) we downloaded a file called `my-first-file.txt`,
 made a copy of it named `YourName-first-file.txt`, and now we practice how to edit it!
 
-!!! note
-    These exercises are done with the `nano` editor, but you can use your favorite editor too.
+:speech_balloon:
+These exercises are done with the `nano` editor, but you can use your favorite editor too.
 
-!!! tip
-    Here's a [nano cheat sheet](https://www.nano-editor.org/dist/latest/cheatsheet.html).
+:bulb:
+Here's a [nano cheat sheet](https://www.nano-editor.org/dist/latest/cheatsheet.html).
 
 ## Processing text files
 
@@ -54,9 +58,9 @@ made a copy of it named `YourName-first-file.txt`, and now we practice how to ed
 3. Use `pwd` and copy the path of your current working directory
 4. Copy the text file to your personal computer for example with `scp`
 
-    !!! danger
-        The following has to be typed in your personal computer's terminal, not Roihu
-        (make sure you have set up SSH keys and downloaded an SSH certificate):
+    :bangbang:
+    The following has to be typed in your personal computer's terminal, not Roihu
+    (make sure you have set up SSH keys and downloaded an SSH certificate):
 
     ```bash
     scp cscusername@roihu-cpu.csc.fi:/path/to/your/filename.md /path/to/local/folder
@@ -66,12 +70,12 @@ made a copy of it named `YourName-first-file.txt`, and now we practice how to ed
 
 ## More information
 
-!!! tip
-    You can read more about `scp` and moving files from
-    [Docs CSC: Copying files using scp](https://docs.csc.fi/data/moving/scp/).
+:bulb:
+You can read more about `scp` and moving files from
+[Docs CSC: Copying files using scp](https://docs.csc.fi/data/moving/scp/).
 
-!!! note
-    One way to display `.html` files on Roihu is to go through the Allas object storage service.
-    After configuring Allas, there's `a-commands` that enable publishing files on the internet.
-    This is instructed in the
-    [Allas tutorial](../allas/allas-basics.md).
+:speech_balloon:
+One way to display `.html` files on Roihu is to go through the Allas object storage service.
+After configuring Allas, there's `a-commands` that enable publishing files on the internet.
+This is instructed in the
+[Allas tutorial](../allas/allas-basics.md).
