@@ -1,12 +1,16 @@
 # Using Allas in batch jobs
 
+!!! abstract "In this tutorial you will learn"
+
+    - How to use Allas inside batch jobs
+
 ## Preparations
 
-!!! note
-    On Roihu, `allas-conf` sets up a **persistent S3 connection** by default.
-    Unlike the older Swift protocol (which is only valid for eight hours), the S3
-    connection does not expire, so there is no need to worry about a batch job
-    starting late or running longer than eight hours.
+:speech_balloon:
+On Roihu, `allas-conf` sets up a **persistent S3 connection** by default.
+Unlike the older Swift protocol (which is only valid for eight hours), the S3
+connection does not expire, so there is no need to worry about a batch job
+starting late or running longer than eight hours.
 
 1. Load the Allas module and open a connection to Allas interactively
    **before** submitting your batch job:
@@ -16,18 +20,18 @@
     allas-conf
     ```
 
-    !!! danger
-        Re-running `allas-conf` later (e.g. to switch to a different project)
-        updates the generic `s3allas:` rclone endpoint to point at the new
-        project. This can affect batch jobs that are still queued or running! To
-        avoid this, prefer the project-specific endpoint `s3allas-project_<id>:`
-        (also created by `allas-conf`) in your batch scripts instead of
-        `s3allas:`.
+    :bangbang:
+    Re-running `allas-conf` later (e.g. to switch to a different project)
+    updates the generic `s3allas:` rclone endpoint to point at the new
+    project. This can affect batch jobs that are still queued or running! To
+    avoid this, prefer the project-specific endpoint `s3allas-project_<id>:`
+    (also created by `allas-conf`) in your batch scripts instead of
+    `s3allas:`.
 
-    !!! tip
-        If you specifically need the Swift protocol instead (e.g. to access
-        multiple projects from the same session), see
-        [Using the legacy Swift protocol](#using-the-legacy-swift-protocol) below.
+    :bulb:
+    If you specifically need the Swift protocol instead (e.g. to access
+    multiple projects from the same session), see
+    [Using the legacy Swift protocol](#using-the-legacy-swift-protocol) below.
 
 2. Choose a file from Allas. The file should have text in it. You can use the
    one you created in
@@ -71,10 +75,10 @@
 
     === "rclone"
 
-        !!! warning
-            Since the S3 connection set up in [Preparations](#preparations) is
-            persistent, no extra connection code is needed inside the batch script --
-            just make sure you have run `allas-conf` interactively beforehand.
+        :point_up_tone1:
+        Since the S3 connection set up in [Preparations](#preparations) is
+        persistent, no extra connection code is needed inside the batch script --
+        just make sure you have run `allas-conf` interactively beforehand.
 
         ```bash
         #!/bin/bash
@@ -96,12 +100,11 @@
         rclone copy $filename.num_rows s3allas:$bucketname
         ```
 
-
-        !!! tip
-            If you're running multiple batch jobs across different projects at the
-            same time, use the project-specific endpoint (`s3allas-project_<id>:`)
-            instead of `s3allas:` to avoid a later `allas-conf` run changing which
-            project your job's `rclone` commands point to.
+        :bulb:
+        If you're running multiple batch jobs across different projects at the
+        same time, use the project-specific endpoint (`s3allas-project_<id>:`)
+        instead of `s3allas:` to avoid a later `allas-conf` run changing which
+        project your job's `rclone` commands point to.
 
 5. Submit the batch job with the command:
 
@@ -118,16 +121,16 @@
 
 ## Using the legacy Swift protocol
 
-!!! warning
-    Roihu defaults to S3, so the steps above are the recommended approach for
-    most users. Use this section only if you specifically need Swift, e.g. to
-    access multiple projects within the same eight-hour session.
+:point_up_tone1:
+Roihu defaults to S3, so the steps above are the recommended approach for
+most users. Use this section only if you specifically need Swift, e.g. to
+access multiple projects within the same eight-hour session.
 
-!!! note
-    The `allas-conf --swift` command opens a Swift-based Allas connection that
-    is valid for eight hours. In interactive use this is not a problem, since
-    `allas-conf` can simply be run again to extend the connection. In batch jobs,
-    however, the job may still be queuing or running once the connection expires.
+:speech_balloon:
+The `allas-conf --swift` command opens a Swift-based Allas connection that
+is valid for eight hours. In interactive use this is not a problem, since
+`allas-conf` can simply be run again to extend the connection. In batch jobs,
+however, the job may still be queuing or running once the connection expires.
 
 1. Load the Allas module and open a Swift connection with the `-k` option:
 
@@ -141,9 +144,9 @@
       your password when you re-execute `allas-conf` with the `-k` option and
       the Allas project name.
 
-    !!! warning
-        If you mistype your password when using the `-k` option, you
-        must use the command `unset OS_PASSWORD` before you can try again.
+    :point_up_tone1:
+    If you mistype your password when using the `-k` option, you
+    must use the command `unset OS_PASSWORD` before you can try again.
 
 2. Refresh the connection with the command:
 
@@ -151,12 +154,12 @@
     allas-conf --swift -k <project>  # replace <project> with your CSC project, e.g. project_2001234
     ```
 
-    !!! warning
-        When `$OS_PASSWORD` is set, the `a-commands` (`a-put`, `a-get`, `a-list`,
-        `a-delete`) automatically refresh the Allas connection when the commands
-        are executed in a batch job, so the `a-commands` batch
-        script above works with Swift as-is, once the connection has been opened
-        this way.
+    :point_up_tone1:
+    When `$OS_PASSWORD` is set, the `a-commands` (`a-put`, `a-get`, `a-list`,
+    `a-delete`) automatically refresh the Allas connection when the commands
+    are executed in a batch job, so the `a-commands` batch
+    script above works with Swift as-is, once the connection has been opened
+    this way.
 
 3. If you use `rclone` instead of the `a-commands`, you need to explicitly
    refresh the Swift connection inside the batch script itself, since the
@@ -186,9 +189,9 @@
     rclone copy $filename.num_rows allas:$bucketname
     ```
 
-    !!! tip
-        Note that the Swift-configured `rclone` remote is named `allas:`, not
-        `s3allas:` (which is reserved for the S3 connection).
+    :bulb:
+    Note that the Swift-configured `rclone` remote is named `allas:`, not
+    `s3allas:` (which is reserved for the S3 connection).
 
 ## More information
 

@@ -1,24 +1,26 @@
 # Fast disk areas
 
-!!! warning
-    This tutorial requires that you have a
-    [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
-    that is a member of a project that
-    [has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+!!! abstract "In this tutorial you will learn"
 
-!!! abstract
-    Upon completion of this tutorial, you will be familiar with ideal disk areas
-    for I/O-intensive workloads, i.e. frequent read and write operations.
+    - Which disk areas to use for I/O-intensive workloads, i.e.
+      frequent read and write operations
+
+:bangbang:
+This tutorial requires that you have a
+[user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
+that is a member of a project that
+[has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
 ## Perform a light-weight pre-processing of data files using fast local disk
 
-!!! note
-    You may sometimes come across situations where you have to process a large
-    number of smaller files, which can cause heavy input/output load on the shared
-    file system used in CSC's computing environment.
+:speech_balloon:
+You may sometimes come across situations where you have to process a large
+number of smaller files, which can cause heavy input/output load on the shared
+file system used in CSC's computing environment.
 
-    In order to facilitate such heavy I/O operations, CSC provides fast local
-    disk areas on the login and compute nodes.
+:speech_balloon:
+In order to facilitate such heavy I/O operations, CSC provides fast local
+disk areas on the login and compute nodes.
 
 1. First, log in to Roihu using SSH (or by opening a login node shell in the
    Roihu web interface):
@@ -34,20 +36,20 @@
     echo $TMPDIR
     ```
 
-!!! tip
-    The local disk area on the login nodes is meant for light-weight
-    pre-processing of data and I/O-intensive tasks such as software compilation.
-    Actual computations should be submitted to the batch queue from the `/scratch`
-    disk.
+:bulb:
+The local disk area on the login nodes is meant for light-weight
+pre-processing of data and I/O-intensive tasks such as software compilation.
+Actual computations should be submitted to the batch queue from the `/scratch`
+disk.
 
-!!! tip
-    The local disk area on the login nodes is meant for temporary use and
-    cleaned often, so make sure to move important data to `/scratch` or `/projappl`
-    once you do not need the fast disk anymore.
+:bulb:
+The local disk area on the login nodes is meant for temporary use and
+cleaned often, so make sure to move important data to `/scratch` or `/projappl`
+once you do not need the fast disk anymore.
 
-!!! warning
-    Note that a local disk is specific to a particular node, i.e. you cannot
-    access the local disk of `roihu-cpu-login1` from `roihu-cpu-login2`.
+:point_up_tone1:
+Note that a local disk is specific to a particular node, i.e. you cannot
+access the local disk of `roihu-cpu-login1` from `roihu-cpu-login2`.
 
 ### Download a tar archive containing thousands of small files and merge the files into one large file using the fast local disk
 
@@ -73,15 +75,15 @@
     find . -name 'individual.fasta*' | xargs rm
     ```
 
-    !!! tip
-        `xargs` is a convenient command that takes the output from one command
-        and uses it as an argument to another.
+    :bulb:
+    `xargs` is a convenient command that takes the output from one command
+    and uses it as an argument to another.
 
 ### Move your pre-processed data to the project-specific `/scratch` area before analysis
 
-!!! info
-    Remember: the commands `csc-projects` and `csc-workspaces` reveal
-    information about your projects.
+:thought_balloon:
+Remember: the commands `csc-projects` and `csc-workspaces` reveal
+information about your projects.
 
 1. Create your own folder (using the environment variable `$USER`) under a
    project-specific directory on the `/scratch` disk (or skip this step if you
@@ -103,18 +105,18 @@
 
 ## Optional: Fast local disk areas on compute nodes
 
-!!! warning
-    If you intend to perform heavy computing tasks using a large number of small
-    files, you have to use the fast local disk areas on the **compute nodes**
-    instead of the login nodes. The compute nodes are accessed either
-    [interactively](../batch-jobs/interactive.md) or using
-    [batch jobs](../batch-jobs/serial.md).
+:point_up_tone1:
+If you intend to perform heavy computing tasks using a large number of small
+files, you have to use the fast local disk areas on the **compute nodes**
+instead of the login nodes. The compute nodes are accessed either
+[interactively](../batch-jobs/interactive.md) or using
+[batch jobs](../batch-jobs/serial.md).
 
-!!! warning
-    On Roihu, local NVMe storage on compute nodes is available automatically
-    for every job, with no extra flag needed. The amount you get depends on the
-    partition. More information is available in
-    [Docs CSC](https://docs.csc.fi/computing/roihu-disk/#automatic-local-temporary-storage).
+:point_up_tone1:
+On Roihu, local NVMe storage on compute nodes is available automatically
+for every job, with no extra flag needed. The amount you get depends on the
+partition. More information is available in
+[Docs CSC](https://docs.csc.fi/computing/roihu-disk/#automatic-local-temporary-storage).
 
 1. Move to the `/scratch` area of your project and use the `sinteractive`
    command to request an interactive session on a compute node for 10 minutes:
@@ -131,9 +133,9 @@
     echo $TMPDIR
     ```
 
-    !!! note
-        Note how the path to the fast local storage area contains your username
-        and the ID of your Slurm job, `/tmp/<username>/<jobid>`.
+    :bulb:
+    Note how the path to the fast local storage area contains your username
+    and the ID of your Slurm job, `/tmp/<username>/<jobid>`.
 
 3. Exit the interactive session with `exit`, and then try the same in a proper batch
    job. Create a file called `my_nvme.bash` using, for example, the `nano` text
@@ -156,11 +158,11 @@
     echo $TMPDIR
     ```
 
-    !!! danger
-        It is possible to request additional local storage if the `$TMPDIR` quota
-        is not sufficient. Note however, that this currently requires allocating
-        a full node. More information in
-        [Docs CSC](https://docs.csc.fi/computing/roihu-disk/#disaggregated-storage).
+    :bangbang:
+    It is possible to request additional local storage if the `$TMPDIR` quota
+    is not sufficient. Note however, that this currently requires allocating
+    a full node. More information in
+    [Docs CSC](https://docs.csc.fi/computing/roihu-disk/#disaggregated-storage).
 
 5. Submit the batch job with the command:
 
@@ -176,11 +178,11 @@
     cat slurm-<jobid>.out    # replace <jobid> with the actual Slurm job ID
     ```
 
-    !!! danger
-        If you write important data to the local disk in your interactive session
-        or batch job, remember to copy the data back to `/scratch` before the job
-        terminates! The local disk is cleaned immediately after your job, and
-        salvaging any forgotten files is not possible afterwards.
+    :bangbang:
+    If you write important data to the local disk in your interactive session
+    or batch job, remember to copy the data back to `/scratch` before the job
+    terminates! The local disk is cleaned immediately after your job, and
+    salvaging any forgotten files is not possible afterwards.
 
     !!! question "Bonus exercise"
         Try to repeat the

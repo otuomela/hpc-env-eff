@@ -1,17 +1,21 @@
 # Using Allas with rclone from your local computer
 
-!!! info
-    The graphical user interfaces of Allas can normally manage data transfers
-    between Allas and your local computing environment as long as the amount of
-    data and number of files is small. However, if you need to move large amounts
-    of data, then using command-line tools like `rclone` or `allas-cli-utils` could
-    be a more efficient way to use Allas.
+!!! abstract "In this tutorial you will learn"
 
-!!! note
-    In this exercise, we'll study how you can use Allas from your own computer
-    using `rclone`, which is available for all common operating systems including
-    Windows and macOS. Note that on macOS and Linux machines you can also install
-    the whole allas-cli-utils repository locally.
+    - How to access Allas using local rclone
+
+:thought_balloon:
+The graphical user interfaces of Allas can normally manage data transfers
+between Allas and your local computing environment as long as the amount of
+data and number of files is small. However, if you need to move large amounts
+of data, then using command-line tools like `rclone` or `allas-cli-utils` could
+be a more efficient way to use Allas.
+
+:speech_balloon:
+In this exercise, we'll study how you can use Allas from your own computer
+using `rclone`, which is available for all common operating systems including
+Windows and macOS. Note that on macOS and Linux machines you can also install
+the whole allas-cli-utils repository locally.
 
 !!! danger
     Unlike previous supercomputers, Roihu defaults to **S3** instead of Swift.
@@ -22,9 +26,9 @@
 
 ## Step 1. Installing rclone
 
-!!! warning
-    If you already have `rclone` command available, skip to
-    [Step 2](#step-2-configuring-rclone-s3-connection-in-local-machine).
+:point_up_tone1:
+If you already have `rclone` command available, skip to
+[Step 2](#step-2-configuring-rclone-s3-connection-in-local-machine).
 
 1. Download the `rclone` executable to your own machine. Executables can be found
    at <https://rclone.org/downloads/>.
@@ -83,12 +87,12 @@
 
 ## Step 3. Upload and download from local computer
 
-!!! note
-    Use `rclone` to upload a small directory from your local computer to Allas.
+:speech_balloon:
+Use `rclone` to upload a small directory from your local computer to Allas.
 
-!!! warning
-    For this test, choose some unimportant directory that contains only a small
-    amount of data (less than 1 GiB).
+:point_up_tone1:
+For this test, choose some unimportant directory that contains only a small
+amount of data (less than 1 GiB).
 
 1. First check what would be copied by running `rclone` command with option
    `--dry-run`. Prefix the target bucket name in Allas with your username to

@@ -1,30 +1,34 @@
 # How to run I/O-intensive computing tasks efficiently?
 
+!!! abstract "In this tutorial you will learn"
+
+    - How to use local disks for I/O-intensive computing
+
 ## Background
 
-!!! warning
-    Lustre-based project-specific directories `/scratch` and `/projappl` can
-    store large amounts of data and are accessible to all compute nodes of Roihu.
-    However, these directories are not good for managing numerous files or
-    performing intensive input/output (I/O) operations. If you need to work with a
-    huge number of smaller files or perform frequent reads/writes, you should
-    consider using the NVMe-based local temporary scratch directories, either
-    through normal or interactive batch jobs.
+:point_up_tone1:
+Lustre-based project-specific directories `/scratch` and `/projappl` can
+store large amounts of data and are accessible to all compute nodes of Roihu.
+However, these directories are not good for managing numerous files or
+performing intensive input/output (I/O) operations. If you need to work with a
+huge number of smaller files or perform frequent reads/writes, you should
+consider using the NVMe-based local temporary scratch directories, either
+through normal or interactive batch jobs.
 
 ## Convert the following regular batch job script into one that uses local scratch for faster I/O
 
-!!! note
-    Below is a normal batch job script that pulls a Docker image from DockerHub
-    and converts it into an Apptainer image that is compatible with HPC
-    environments such as the CSC supercomputer Roihu. During the conversion
-    process, several layers are retrieved, cached and then converted into an
-    Apptainer `.sif` image file.
+:speech_balloon:
+Below is a normal batch job script that pulls a Docker image from DockerHub
+and converts it into an Apptainer image that is compatible with HPC
+environments such as the CSC supercomputer Roihu. During the conversion
+process, several layers are retrieved, cached and then converted into an
+Apptainer `.sif` image file.
 
-!!! danger
-    For jobs requiring [fast local storage exceeding default quotas](https://docs.csc.fi/computing/roihu-disk/#compute-nodes), it is
-    possible to allocate additional storage with `#BB_LUA SBF storagesize=<GBs>`.
-    Note, however, that this currently requires allocating a full node. More information
-    in [Docs CSC](https://docs.csc.fi/computing/roihu-disk/#disaggregated-storage).
+:bangbang:
+For jobs requiring [fast local storage exceeding default quotas](https://docs.csc.fi/computing/roihu-disk/#compute-nodes), it is
+possible to allocate additional storage with `#BB_LUA SBF storagesize=<GBs>`.
+Note, however, that this currently requires allocating a full node. More information
+in [Docs CSC](https://docs.csc.fi/computing/roihu-disk/#disaggregated-storage).
 
 1. Copy the script below to a file (e.g. `batch_job.sh`) and modify it
    accordingly:
@@ -80,9 +84,9 @@
 
 ## Example results
 
-!!! warning
-    The example below was run on Puhti with explicitly requested local storage
-    (`$LOCAL_SCRATCH`). Exact execution times may differ on Roihu.
+:point_up_tone1:
+The example below was run on Puhti with explicitly requested local storage
+(`$LOCAL_SCRATCH`). Exact execution times may differ on Roihu.
 
 Below is a comparison of execution time for running the same job on
 `$LOCAL_SCRATCH` vs. normal `/scratch`:
