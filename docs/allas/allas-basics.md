@@ -1,5 +1,10 @@
 # Basic usage of Allas
 
+!!! abstract "In this tutorial you will learn"
+
+    - How to access Allas
+    - Basic Allas commands
+
 ## Accessing Allas via Allas web interface
 
 1. Log in to Allas web interface: <https://allas.csc.fi>
@@ -14,9 +19,9 @@
    but prefer a file that you can open on Roihu, e.g. a text file). The upload process
    starts from the *Upload* button in the upper right corner of the interface.
 
-!!! info
-    During the exercises, you can use this web interface to get another view of your
-    buckets and objects in Allas.
+:thought_balloon:
+During the exercises, you can use this web interface to get another view of your
+buckets and objects in Allas.
 
 ## Accessing Allas from the Roihu command line
 
@@ -52,8 +57,8 @@
     allas-conf 
     ```
 
-    !!! tip
-        It might take a while to run `module load allas`.
+    :bulb:
+    It might take a while to run `module load allas`.
 
 2. If you have several projects with access to Allas available, select the one
    where you just created a bucket using the Allas web interface.
@@ -104,13 +109,13 @@
         a-put -b <id>-$USER <newfilename>   # replace <id> and <newfilename> accordingly
         ```
 
-        !!! info
-            Try running `a-put -h` to understand the command-line switch
-            above and to find more information on options.
+        :thought_balloon:
+        Try running `a-put -h` to understand the command-line switch
+        above and to find more information on options.
 
-        !!! note
-            With larger text files it is good to include the option `-c`
-            to enable `zstdmt` compression of the files.
+        :speech_balloon:
+        With larger text files it is good to include the option `-c`
+        to enable `zstdmt` compression of the files.
 
     === "rclone"
 
@@ -137,15 +142,15 @@
 
 2. Whenever you need your data again, you can download it from Allas.
 
-!!! info
-    If you can't find your file but remember the name, try
-    `a-find`. Use `a-find -h` for help.
+:thought_balloon:
+If you can't find your file but remember the name, try
+`a-find`. Use `a-find -h` for help.
 
 ## Extra: publish a file to the internet
 
-!!! note
-    The `a-commands` include basic tools for publishing files to the internet.
-    You might notice that the course slides use one of these! 🤓
+:speech_balloon:
+The `a-commands` include basic tools for publishing files to the internet.
+You might notice that the course slides use one of these! 🤓
 
 !!! danger
     Using these commands makes your **entire bucket** public! Don't do this if you
@@ -165,9 +170,9 @@
 
 ### Option 2: `a-flip`
 
-!!! note
-    `a-flip` is meant for files that need to be published only temporarily,
-    for example for a one-time share.
+:speech_balloon:
+`a-flip` is meant for files that need to be published only temporarily,
+for example for a one-time share.
 
 1. Select a file with appropriate content and publish it with the command:
 
@@ -178,6 +183,6 @@
 2. The command outputs a URL (public link). Copy it to your browser or
    send it to your friends 😎
 
-!!! danger
-    `a-flip` takes just the file name, not the bucket name like many of the
-    previous commands.
+:bangbang:
+`a-flip` takes just the file name, not the bucket name like many of the
+previous commands.

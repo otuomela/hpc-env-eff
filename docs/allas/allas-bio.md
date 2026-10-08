@@ -1,5 +1,9 @@
 # Using Allas with bio data
 
+!!! abstract "In this tutorial you will learn"
+
+    - How to utilize Allas for biological data
+
 Before the actual exercise, open a view of the Allas service in your browser
 using the Roihu web interface.
 
@@ -98,10 +102,10 @@ using the Roihu web interface.
 5. Locate your own `$USER-genomes-rc` bucket and download one of the uploaded
    files to your local computer.
 
-!!! tip
-    You can read more about moving files at Docs CSC:
-    [Copying files using scp](https://docs.csc.fi/data/moving/scp/) and
-    [Moving data with rclone](https://docs.csc.fi/data/Allas/allas-roihu/#example-2-using-allas-with-rclone)
+:bulb:
+You can read more about moving files at Docs CSC:
+[Copying files using scp](https://docs.csc.fi/data/moving/scp/) and
+[Moving data with rclone](https://docs.csc.fi/data/Allas/allas-roihu/#example-2-using-allas-with-rclone)
 
 ### Upload case 2: `a-put`
 

@@ -1,5 +1,9 @@
 # Backing up files to Allas from Roihu
 
+!!! abstract "In this tutorial you will learn"
+
+    - How to back up files to Allas
+
 ## Preparations (if not done already)
 
 1. Log in to `roihu-cpu.csc.fi` (open a login node shell if using the web interface).
@@ -32,8 +36,8 @@
     allas-conf --swift # allas-backup currently works only with the swift protocol
     ```
 
-    !!! tip
-        It might take a while to run `module load allas`.
+    :bulb:
+    It might take a while to run `module load allas`.
 
 2. If you have several projects with the Allas service available, select the one
    where you want to perform the backup.
