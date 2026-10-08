@@ -1,15 +1,19 @@
 # Modules on Roihu
 
-!!! warning
-    This tutorial requires that you have a
-    [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
-    that is a member of a project that
-    [has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+!!! abstract "In this tutorial you will learn"
 
-!!! warning
-    You must also have [set up SSH keys](../access/ssh.md) and
-    [downloaded an SSH certificate](../access/certificate.md)
-    that is still valid.
+    - How to find and load modules
+
+:bangbang:
+This tutorial requires that you have a
+[user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
+that is a member of a project that
+[has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+
+:bangbang:
+You must also have [set up SSH keys](../access/ssh.md) and
+[downloaded an SSH certificate](../access/certificate.md)
+that is still valid.
 
 ## Checking the default modules
 
@@ -29,14 +33,14 @@
 
 ## More module commands with GROMACS as an example
 
-!!! note
-    Let's imagine that you want to do some molecular dynamics simulations
-    using the [GROMACS](https://www.gromacs.org/about.html) application.
+:speech_balloon:
+Let's imagine that you want to do some molecular dynamics simulations
+using the [GROMACS](https://www.gromacs.org/about.html) application.
 
-!!! tip
-    It is always a good idea to start by checking
-    [the application list in Docs CSC](https://docs.csc.fi/apps/)
-    to see whether this application is installed on Roihu and how to use it.
+:bulb:
+It is always a good idea to start by checking
+[the application list in Docs CSC](https://docs.csc.fi/apps/)
+to see whether this application is installed on Roihu and how to use it.
 
 1. Check out the [GROMACS page](https://docs.csc.fi/apps/gromacs/).
 2. Skim through the documentation and verify that the license allows you
@@ -50,13 +54,13 @@
     module spider gromacs
     ```
 
-    !!! warning
-        This might take a while as the command searches through all
-        the available modules.
+    :point_up_tone1:
+    This might take a while as the command searches through all
+    the available modules.
 
-    !!! note
-        The list can be quite long. You can go to the next line with
-        Enter, or stop viewing by typing `q`.
+    :speech_balloon:
+    The list can be quite long. You can go to the next line with
+    Enter, or stop viewing by typing `q`.
 
 5. Check if some versions can be loaded directly, *i.e.* are compatible
    with your currently loaded module environment:
@@ -65,15 +69,15 @@
     module avail gromacs
     ```
 
-    !!! tip
-        Another quick way to list the available versions is by typing
-        the load command up to the module name and then hitting `TAB` twice:
+    :bulb:
+    Another quick way to list the available versions is by typing
+    the load command up to the module name and then hitting `TAB` twice:
 
-        ```text
-        $ module load gromacs # and here double press TAB
-        gromacs         gromacs/2025.2  gromacs/2025.4  gromacs/2026.1
-        gromacs/2025.1  gromacs/2025.3  gromacs/2026.0
-        ```
+    ```text
+    $ module load gromacs # and here double press TAB
+    gromacs         gromacs/2025.2  gromacs/2025.4  gromacs/2026.1
+    gromacs/2025.1  gromacs/2025.3  gromacs/2026.0
+    ```
 
 6. Which version is loaded with the default command?
    Is it the newest version? Try:
@@ -89,9 +93,9 @@
     module list
     ```
 
-    !!! warning
-        If no version is given in the module command, the default version
-        is loaded.
+    :point_up_tone1:
+    If no version is given in the module command, the default version
+    is loaded.
 
     - The default version is typically the latest **stable** version of
       the program.
@@ -105,9 +109,9 @@
     module list
     ```
 
-    !!! tip
-        It is generally best to use the latest versions since they are
-        typically more performant than old ones and may have useful new features.
+    :point_up_tone1:
+    It is generally best to use the latest versions since they are
+    typically more performant than old ones and may have useful new features.
 
 9. If you want to do something else in the same session, it is usually
    best to reset the module environment to the default settings. This can
@@ -123,10 +127,10 @@
 
 ### Loading a module with non-default dependencies
 
-!!! note
-    As an example of a module with non-default dependencies, you can
-    try to load the GPU version of CP2K 2026.1, a software package for
-    electronic structure calculations.
+:speech_balloon:
+As an example of a module with non-default dependencies, you can
+try to load the GPU version of CP2K 2026.1, a software package for
+electronic structure calculations.
 
 1. Log in to Roihu-GPU with your user credentials
    (SSH or [Roihu web interface](https://www.roihu.csc.fi)):

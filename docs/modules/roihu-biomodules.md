@@ -5,9 +5,9 @@
     - How to search for applications
     - How to install Bioconda packages
 
-!!! note
-    Let's imagine that we have some sequencing data that we wish to align to a
-    reference genome and then count how many reads fall into each gene.
+:speech_balloon:
+Let's imagine that we have some sequencing data that we wish to align to a
+reference genome and then count how many reads fall into each gene.
 
 ## Looking for applications and related modules
 
@@ -22,10 +22,10 @@
     module spider hisat2
     ```
 
-    !!! note
-        Not all software installed on CSC's supercomputers has its own documentation
-        page in the application list (yet). They might be new installations or
-        installed by request of a single research group etc.
+    :point_up_tone1:
+    Not all software installed on CSC's supercomputers has its own documentation
+    page in the application list (yet). They might be new installations or
+    installed by request of a single research group etc.
 
 3. Now check whether you could load it right away:
 
@@ -35,11 +35,11 @@
 
     - Do you get a match? Compare with the `module spider` output above.
 
-    !!! warning
-        `module avail` lists only modules that are compatible with your
-        *currently loaded* environment, whereas `module spider` searches through
-        all installed modules. Bio applications on Roihu are not visible until
-        you load `bio-apps`.
+    :point_up_tone1:
+    `module avail` lists only modules that are compatible with your
+    *currently loaded* environment, whereas `module spider` searches through
+    all installed modules. Bio applications on Roihu are not visible until
+    you load `bio-apps`.
 
 4. Load the `bio-apps` meta module and check again:
 
@@ -52,9 +52,9 @@
     - Can you find HISAT2 now? Which other bio applications became available?
     - Is HISAT2 itself among the *loaded* modules?
 
-    !!! tip
-        `bio-apps` is a *meta module*: it doesn't load any application itself,
-        it only makes a set of them available for loading.
+    :bulb:
+    `bio-apps` is a *meta module*: it doesn't load any application itself,
+    it only makes a set of them available for loading.
 
 5. You still need to load the aligner itself:
 
@@ -64,13 +64,13 @@
 
 ## HTSeq
 
-!!! note
-    Let's imagine you just successfully aligned the sequence data, and
-    now want to count how many reads fall into each gene/feature.
+:speech_balloon:
+Let's imagine you just successfully aligned the sequence data, and
+now want to count how many reads fall into each gene/feature.
 
-!!! warning
-    Unlike many other bio modules, `htseq` is not included in the
-    `bio-apps` meta module.
+:bangbang:
+Unlike many other bio modules, `htseq` is not included in the
+`bio-apps` meta module.
 
 1. Try searching for the htseq tool by using the `module spider` command:
 
@@ -93,11 +93,11 @@ Conda environments are, however, problematic on supercomputers with parallel fil
 systems since they create too many files. The solution is to use containerized
 environments.
 
-!!! warning
-    Installing software and containers will be discussed more in sections
-    [8](PLACEHOLDER_LINK_TO_INSTALLING)
-    and [9](PLACEHOLDER_LINK_TO_CONTAINERS).
-    Feel free to return to this tutorial later.
+:point_up_tone1:
+Installing software and containers will be discussed more in sections
+[8](PLACEHOLDER_LINK_TO_INSTALLING)
+and [9](PLACEHOLDER_LINK_TO_CONTAINERS).
+Feel free to return to this tutorial later.
 
 1. Look for the MetaBAT2 application like we did above with HTSeq:
 
@@ -157,19 +157,19 @@ environments.
     wrap-container -w /usr/local/bin docker://quay.io/biocontainers/metabat2:2.18_23_gc869c52--h61f4f8f_0 --prefix /projappl/<project>/$USER/metabat-2.18    # replace <project> with your CSC project, e.g. project_2001234
     ```
 
-    !!! note
-        The `-w` option specifies the installation directory *inside the container*.
-        For containers from Bioconda this is always `/usr/local/bin`.
+    :point_up_tone1:
+    The `-w` option specifies the installation directory *inside the container*.
+    For containers from Bioconda this is always `/usr/local/bin`.
 
-    !!! note
-        The `--prefix` option is used to indicate the directory where we want to
-        install the software.
+    :point_up_tone1:
+    The `--prefix` option is used to indicate the directory where we want to
+    install the software.
 
-    !!! tip
-        After the installation finishes, the executables of the program will be
-        in the directory `metabat-2.18/bin`. Note that these are not the actual
-        binaries, but rather wrapper scripts for the executables *inside the container*.
-        You can, however, use them as if they were the actual commands.
+    :bulb:
+    After the installation finishes, the executables of the program will be
+    in the directory `metabat-2.18/bin`. Note that these are not the actual
+    binaries, but rather wrapper scripts for the executables *inside the container*.
+    You can, however, use them as if they were the actual commands.
 
 11. Add the `bin` directory to your `$PATH` as suggested by Tykky. This is analogous
     to activating the Conda environment in case of a direct Conda installation and
@@ -186,20 +186,20 @@ environments.
     metabat --help
     ```
 
-!!! info
-    See here
-    [how to install containers from other sources such as the BioContainer registry or local image files](https://docs.csc.fi/support/tutorials/bioconda-tutorial/#containers-from-other-source).
+:thought_balloon:
+See here
+[how to install containers from other sources such as the BioContainer registry or local image files](https://docs.csc.fi/support/tutorials/bioconda-tutorial/#containers-from-other-source).
 
 ## More information
 
 ### Using modules in a batch script
 
-!!! note
-    Make sure to load all necessary modules and export required paths also in your
-    batch scripts before launching any actual commands. It is good practice to start
-    with `module purge` to ensure that you are working in a clean environment.
+:speech_balloon:
+Make sure to load all necessary modules and export required paths also in your
+batch scripts before launching any actual commands. It is good practice to start
+with `module purge` to ensure that you are working in a clean environment.
 
-!!! warning
-    Note that if you are writing a batch script that uses applications from different
-    modules, you should be mindful of the order in which you load (and possibly unload)
-    the modules. Loading one module might automatically replace other ones to avoid conflicts.
+:point_up_tone1:
+Note that if you are writing a batch script that uses applications from different
+modules, you should be mindful of the order in which you load (and possibly unload)
+the modules. Loading one module might automatically replace other ones to avoid conflicts.
