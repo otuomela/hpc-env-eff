@@ -1,51 +1,55 @@
 # Log in to Roihu
 
-!!! danger
-    To begin, make sure you have a
-    [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
-    that is a member of a project which
-    [has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/)
-    and perhaps [Allas](https://docs.csc.fi/data/Allas/). Note that there's a small delay
-    before one can log in to Roihu after creating a new project and adding services.
+!!! abstract "In this tutorial you will learn"
 
-!!! danger
-    In order to
-    [log in with SSH from the command line](#connecting-with-ssh-from-the-command-line),
-    you must have also set up SSH keys and uploaded your public key to MyCSC.
-    [See the previous tutorial](ssh.md).
+    - How to log in to Roihu using the web interface or SSH
+
+:bangbang:
+To begin, make sure you have a
+[user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
+that is a member of a project which
+[has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/)
+and perhaps [Allas](https://docs.csc.fi/data/Allas/). Note that there's a small delay
+before one can log in to Roihu after creating a new project and adding services.
+
+:bangbang:
+In order to
+[log in with SSH from the command line](#connecting-with-ssh-from-the-command-line),
+you must have also set up SSH keys and uploaded your public key to MyCSC.
+[See the previous tutorial](ssh.md).
 
 ## Roihu web interface
 
-!!! note
-    Connecting via the Roihu web interface is an easy way
-    to access the Roihu supercomputer.
+:speech_balloon:
+Connecting via the Roihu web interface is an easy way
+to access the Roihu supercomputer.
 
 1. Open a web browser and go to <https://www.roihu.csc.fi>
 2. Log in with your CSC account (or Haka/Virtu)
 3. You have now connected to Roihu!
 
+:thought_balloon:
 The Roihu web interface landing page looks like this:
 
 ![Roihu web interface](../img/ood.png)
 
-!!! tip
-    From the pinned apps and top menus you can, for example, access your files
-    and open some applications or a command-line interface.
+:bulb:
+From the pinned apps and top menus you can, for example, access your files
+and open some applications or a command-line interface.
 
 ## Connecting with SSH from the command line
 
-!!! danger
-    Roihu has separate login nodes for CPU and GPU usage. This tutorial assumes that
-    you want to connect to Roihu CPU login nodes `roihu-cpu.csc.fi`. To use the GPU
-    resources, you need to connect to the GPU login nodes `roihu-gpu.csc.fi`.
+:bangbang:
+Roihu has separate login nodes for CPU and GPU usage. This tutorial assumes that
+you want to connect to Roihu CPU login nodes `roihu-cpu.csc.fi`. To use the GPU
+resources, you need to connect to the GPU login nodes `roihu-gpu.csc.fi`.
 
-!!! note
+:speech_balloon:
+The basic Command-Line Interface (CLI) in Unix-based systems is the Terminal.
 
-    The basic Command-Line Interface (CLI) in Unix-based systems is the Terminal.
-
-!!! tip
-    Different operating systems have slightly different CLIs and SSH clients,
-    i.e. programs that you can use to connect to the supercomputers.
+:bulb:
+Different operating systems have slightly different CLIs and SSH clients,
+i.e. programs that you can use to connect to the supercomputers.
     
 === "Windows"
 
@@ -58,9 +62,9 @@ The Roihu web interface landing page looks like this:
     - You can use the Windows PowerShell. See
       [Docs CSC](https://docs.csc.fi/computing/connecting/ssh-windows/#powershell).
 
-    !!! danger
-        The following steps assume you use **MobaXterm**.
-        [More examples can be found in Docs CSC](https://docs.csc.fi/computing/connecting/).
+    :bangbang:
+    The following steps assume you use **MobaXterm**.
+    [More examples can be found in Docs CSC](https://docs.csc.fi/computing/connecting/).
 
     1. Launch MobaXterm from the applications list (opens from the Windows logo),
        or search for it in the bottom bar search box.
@@ -79,28 +83,28 @@ The Roihu web interface landing page looks like this:
 
     7. You are asked to enter your SSH key passphrase.
 
-        !!! tip
-            To avoid having to type your passphrase every time you connect,
-            you may enable the MobAgent authentication agent in the program settings,
-            **Settings > SSH > SSH agents**. Tick the **Use internal SSH agent "MobAgent"** box
-            and select the key(s) you want to load.
+        :bulb:
+        To avoid having to type your passphrase every time you connect,
+        you may enable the MobAgent authentication agent in the program settings,
+        **Settings > SSH > SSH agents**. Tick the **Use internal SSH agent "MobAgent"** box
+        and select the key(s) you want to load.
 
     8. You've now connected to Roihu!
 
-        !!! tip
-            The next time you want to log in to Roihu, just select it
-            from the **User session** menu on the left!
+        :bulb:
+        The next time you want to log in to Roihu, just select it
+        from the **User session** menu on the left!
 
-        !!! tip
-            Note, you may also log in with MobaXterm using the plain `ssh`
-            command similar to Linux and macOS (see image below).
+        :bulb:
+        Note, you may also log in with MobaXterm using the plain `ssh`
+        command similar to Linux and macOS (see image below).
 
         ![mobaxterm-view](../img/mobaxterm-login.png)
 
 === "Linux/macOS"
 
-    !!! note 
-        Laptops and workstations running Linux or macOS typically have SSH pre-installed.
+    :speech_balloon:
+    Laptops and workstations running Linux or macOS typically have SSH pre-installed.
 
     Find the Terminal on your computer:
 
@@ -112,30 +116,30 @@ The Roihu web interface landing page looks like this:
         ssh cscusername@roihu-cpu.csc.fi
         ```
 
-        !!! note
-            If you have saved your SSH key with a non-default name or in a non-default location,
-            please specify the path to your key using the `-i` option:
+        :speech_balloon:
+        If you have saved your SSH key with a non-default name or in a non-default location,
+        please specify the path to your key using the `-i` option:
 
-            ```bash
-            ssh cscusername@roihu-cpu.csc.fi -i /path/to/private/key
-            ```
+        ```bash
+        ssh cscusername@roihu-cpu.csc.fi -i /path/to/private/key
+        ```
 
     2. You may be prompted to type your SSH key passphrase.
 
-        !!! tip
-            To avoid having to type your passphrase every time you connect to a CSC supercomputer,
-            the `ssh-agent` utility can hold your keys in memory. Using `ssh-agent` is not necessary,
-            but makes using SSH keys very convenient!
+        :bulb:
+        To avoid having to type your passphrase every time you connect to a CSC supercomputer,
+        the `ssh-agent` utility can hold your keys in memory. Using `ssh-agent` is not necessary,
+        but makes using SSH keys very convenient!
 
-            - On Linux systems, `ssh-agent` is typically configured and run automatically at login
-              and requires no additional actions on your part.
-            - On macOS systems, you should add the following lines to the `~/.ssh/config` file:
+        - On Linux systems, `ssh-agent` is typically configured and run automatically at login
+          and requires no additional actions on your part.
+        - On macOS systems, you should add the following lines to the `~/.ssh/config` file:
 
-                ```text
-                Host *
-                    UseKeychain no
-                    AddKeysToAgent yes
-                ```
+            ```text
+            Host *
+                UseKeychain no
+                AddKeysToAgent yes
+            ```
 
 Scroll down to [On Roihu](#on-roihu).
 
@@ -214,11 +218,12 @@ Scroll down to [On Roihu](#on-roihu).
 
 ## Remote graphics
 
-!!! note
-    Remote graphics may not work by default. Try the
-    [Roihu web interface](https://docs.csc.fi/computing/webinterface/) for running graphical applications.
+:speech_balloon:
+Remote graphics may not work by default. Try the
+[Roihu web interface](https://docs.csc.fi/computing/webinterface/) for running graphical applications.
 
-    Another option is to enable X11-tunneling as follows.
+:speech_balloon:
+Another option is to enable X11-tunneling as follows.
     
 === "Windows"
 
@@ -244,9 +249,9 @@ Scroll down to [On Roihu](#on-roihu).
         export DISPLAY=:0
         ```
 
-!!! warning
-    For intensive remote graphics we recommend using the
-    [Roihu web interface](https://www.roihu.csc.fi/).
+:point_up_tone1:
+For intensive remote graphics we recommend using the
+[Roihu web interface](https://www.roihu.csc.fi/).
 
 ## More information
 

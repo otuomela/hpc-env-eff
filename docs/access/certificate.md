@@ -1,23 +1,27 @@
 # SSH certificates
 
-!!! danger
-    To begin, make sure you have a
-    [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
-    that is a member of a project which
-    [has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/)
-    and perhaps [Allas](https://docs.csc.fi/data/Allas/). Note that there's a small delay
-    before one can log in to Roihu after creating a new project and adding services.
+!!! abstract "In this tutorial you will learn"
 
-!!! note
-    SSH keys and certificates improve security and ease of use. They are required
-    to be able to log in to Roihu from the terminal using an **SSH client**.
+    - How to sign your SSH key with a certificate
 
-!!! warning
-    SSH keys and certificates are **not** necessary if you only use the browser-based
-    web interfaces to log in to Roihu.
+:bangbang:
+To begin, make sure you have a
+[user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
+that is a member of a project which
+[has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/)
+and perhaps [Allas](https://docs.csc.fi/data/Allas/). Note that there's a small delay
+before one can log in to Roihu after creating a new project and adding services.
 
-!!! danger
-    Before starting this tutorial, make sure you have [set up your SSH keys](ssh.md).
+:speech_balloon:
+SSH keys and certificates improve security and ease of use. They are required
+to be able to log in to Roihu from the terminal using an **SSH client**.
+
+:point_up_tone1:
+SSH keys and certificates are **not** necessary if you only use the browser-based
+web interfaces to log in to Roihu.
+
+:bangbang:
+Before starting this tutorial, make sure you have [set up your SSH keys](ssh.md).
 
 An SSH certificate is proof of a successful two-factor authentication completed at MyCSC.
 **You should never share your certificate with anyone.** Together with your private SSH key,
@@ -25,13 +29,13 @@ it can grant anyone access to your account on Roihu.
 
 ## Option 1: Using the CSC certificate helper tool
 
-!!! note
-    CSC has developed a Python helper tool for signing and downloading an SSH certificate,
-    and adding it to your SSH agent.
+:speech_balloon:
+CSC has developed a Python helper tool for signing and downloading an SSH certificate,
+and adding it to your SSH agent.
 
-!!! tip
-    This is the recommended way to get your SSH certificate for logging in to Roihu
-    using an SSH client!
+:bulb:
+This is the recommended way to get your SSH certificate for logging in to Roihu
+using an SSH client!
 
 === "Windows"
 
@@ -67,13 +71,13 @@ it can grant anyone access to your account on Roihu.
                 eval $(ssh-agent -s)
                 ```
 
-        !!! danger "Important note"
-            SSH agent is not mandatory to sign and download SSH certificates for Roihu,
-            but using it makes connecting much easier (e.g. no need to type SSH passphrase every time).
+        :bangbang: **Important note:**
+        SSH agent is not mandatory to sign and download SSH certificates for Roihu,
+        but using it makes connecting much easier (e.g. no need to type SSH passphrase every time).
 
-        !!! warning
-            Using SSH agent is also a prerequisite to be able to move files directly
-            between Roihu and other CSC services (like LUMI).
+        :point_up_tone1:
+        Using SSH agent is also a prerequisite to be able to move files directly
+        between Roihu and other CSC services (like LUMI).
 
     4. Open PowerShell and run the certificate helper tool for example like this:
 
@@ -114,13 +118,13 @@ it can grant anyone access to your account on Roihu.
             Replace `<host>` with the host name. For Roihu CPU login nodes it is `roihu-cpu`.
             You can also use `roihu-*` to add the keys both for CPU and GPU login nodes, or `*` for all CSC services.
 
-        !!! danger "Important note"
-            SSH agent is not mandatory to sign and download SSH certificates for Roihu,
-            but using it makes connecting much easier (e.g. no need to type SSH passphrase every time).
+        :bangbang: **Important note:**
+        SSH agent is not mandatory to sign and download SSH certificates for Roihu,
+        but using it makes connecting much easier (e.g. no need to type SSH passphrase every time).
 
-        !!! warning
-            Using SSH agent is also a prerequisite to be able to move files directly between
-            Roihu and other CSC services (like LUMI).
+        :point_up_tone1:
+        Using SSH agent is also a prerequisite to be able to move files directly between
+        Roihu and other CSC services (like LUMI).
 
     4. Run the certificate helper tool for example like this:
 

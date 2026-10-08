@@ -1,19 +1,20 @@
 # CSC account and project
 
-!!! abstract
-    This document includes the information required when starting to use Roihu
-    and other CSC services.
-
+!!! abstract "In this tutorial you will learn"
+    
+    - How to create a CSC account and a project
+    
     This document is a simplified version of
     [the accounts and projects guide in docs.csc.fi](https://docs.csc.fi/accounts/).
 
 ## Create a CSC account
 
-!!! note
-    Every user needs a project and user account for using CSC services.
+:speech_balloon:
+Every user needs a project and user account for using CSC services.
 
-    For registration, you will need a mobile device that has an authentication
-    app for setting up multi-factor authentication (MFA).
+:speech_balloon:
+For registration, you will need a mobile device that has an authentication
+app for setting up multi-factor authentication (MFA).
 
 1. Go to [MyCSC](https://my.csc.fi).
 2. Click *Login* or *Create account*.
@@ -37,9 +38,9 @@
 
 ## Check level of identity assurance and elevate if needed
 
-!!! note
-    Accessing Roihu requires that every user has at least a medium
-    **level of identity assurance** (LoA).
+:speech_balloon:
+Accessing Roihu requires that every user has at least a medium
+**level of identity assurance** (LoA).
 
 1. Log in to [MyCSC](https://my.csc.fi).
 2. Go to your MyCSC Profile page.
@@ -57,12 +58,12 @@
 
 ## Project
 
-!!! note
-    To use Roihu every account has to be a member of a project. Access to Roihu service
-    and computing time are tied to projects.
+:speech_balloon:
+To use Roihu every account has to be a member of a project. Access to Roihu service
+and computing time are tied to projects.
 
-!!! warning
-    The default project called "Personal group of N.N." is **not** meant for submitting jobs!
+:point_up_tone1:
+The default project called "Personal group of N.N." is **not** meant for submitting jobs!
 
 1. Join a project
     1. via invitation link (ask the Project Manager to invite you)
@@ -85,17 +86,17 @@
     5. Commercial – Reserved for projects outside of CSC's free-of-charge use policy.
        Only available through [CSC Service Desk](https://docs.csc.fi/support/contact/).
 
-!!! tip
-    A summary of CSC project types you are entitled to create based on your Haka affiliation
-    is available in
-    [Docs CSC](https://docs.csc.fi/accounts/how-to-create-new-project/#right-to-create-csc-projects-based-on-haka-affiliation).
+:bulb:
+A summary of CSC project types you are entitled to create based on your Haka affiliation
+is available in
+[Docs CSC](https://docs.csc.fi/accounts/how-to-create-new-project/#right-to-create-csc-projects-based-on-haka-affiliation).
 
 ## Add services to your project
 
-!!! tip
-    The Project Manager
-    [must have applied for the services](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/#project-manager)
-    for the project first. Here, you accept the _Terms of Use_ and activate them.
+:bulb:
+The Project Manager
+[must have applied for the services](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/#project-manager)
+for the project first. Here, you accept the _Terms of Use_ and activate them.
 
 1. Log in to [MyCSC](https://my.csc.fi)
 2. Click _Projects_ and select a project
