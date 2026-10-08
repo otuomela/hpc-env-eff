@@ -2,29 +2,33 @@
 
 ## What were my recent jobs?
 
+!!! abstract "In this tutorial you will practice"
+
+    - Analyzing `sacct` output
+
 Using the commands shown in the [previous tutorial](sacct-seff-tutorial.md),
 list your jobs from the past month and print out enough details so that you
 can remember the purpose of the jobs (perhaps job ID, the name, partition,
 start time, allocated cores, used and requested memory). The job ID could be
 connected to Slurm output files, if you still have those available.
 
-!!! tip "Some tips"
+Some tips:
 
-    - The `sacct` command is a rather heavy query to the Slurm accounting database.
-      Don't make large queries for testing as we don't want to slow down jobs getting
-      scheduled to run! Start with the past day or so until you get the syntax right.
-      This applies to learning all new commands and applications.
-    - With `man sacct` you can see which keywords to use for printing out different
-      fields stored in the database.
-    - Once you have the data, print it to a file so that you don't need to re-request
-      it from the Slurm accounting database. For example:
+- The `sacct` command is a rather heavy query to the Slurm accounting database.
+  Don't make large queries for testing as we don't want to slow down jobs getting
+  scheduled to run! Start with the past day or so until you get the syntax right.
+  This applies to learning all new commands and applications.
+- With `man sacct` you can see which keywords to use for printing out different
+  fields stored in the database.
+- Once you have the data, print it to a file so that you don't need to re-request
+  it from the Slurm accounting database. For example:
 
-        ```bash
-        sacct -S 2022-11-01 > sacct_output.txt
-        ```
+```bash
+sacct -S 2022-11-01 > sacct_output.txt
+```
 
-    - Work with this file using your favorite tools (e.g. `more` or `less`) to look
-      at the contents (and `grep`, `awk`, `python`, etc. to extract/analyze data).
+- Work with this file using your favorite tools (e.g. `more` or `less`) to look
+  at the contents (and `grep`, `awk`, `python`, etc. to extract/analyze data).
 
 ## Look for patterns or anomalies
 

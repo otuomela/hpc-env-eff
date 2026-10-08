@@ -1,15 +1,19 @@
 # Using `sacct` and `seff` to understand resource usage of finished jobs
 
-!!! note
-    In this tutorial we look at the `seff` and `sacct` commands.
-    The tutorial should be done on Roihu.
+!!! abstract "In this tutorial you will learn"
 
-!!! info
-    `seff` shows detailed data on used resources in an easy-to-read
-    format, but can only show one job at a time.
+    - How to use the `seff` and `sacct` commands
 
-    `sacct` is useful when you want to look at a listing of jobs,
-    but by default it only shows minimal data.
+:point_up_tone1:
+This tutorial should be done on Roihu.
+
+:anger_right:
+`seff` shows detailed data on used resources in an easy-to-read
+format, but can only show one job at a time.
+
+:anger_right:
+`sacct` is useful when you want to look at a listing of jobs,
+but by default it only shows minimal data.
 
 ## Get details about batch jobs
 
@@ -54,20 +58,20 @@
     sacct -e
     ```
 
-!!! danger
-    Running `sacct` is heavy on the batch queue system.
+:bangbang:
+Running `sacct` is heavy on the batch queue system.
 
-    - You should not, for example, write scripts that run it repeatedly.
+- You should not, for example, write scripts that run it repeatedly.
 
 ## Running a test job
 
-!!! note
-    Run a simple array job to practice using `seff` and `sacct`.
+:speech_balloon:
+Run a simple array job to practice using `seff` and `sacct`.
 
-!!! warning
-    If you have limited time, you can skip to
-    [Examining the finished job](#examining-the-finished-job)
-    and use the job ID `1225662` (it is the same job).
+:point_up_tone1:
+If you have limited time, you can skip to
+[Examining the finished job](#examining-the-finished-job)
+and use the job ID `1225662` (it is the same job).
 
 1. Create a file named `array.sh` and paste the following contents in it:
 
@@ -125,8 +129,8 @@
     sacct -X -j <slurmjobid>    # replace <slurmjobid> with the actual job ID
     ```
 
-    !!! note
-        `sacct` is especially handy here, because it is easy to spot the failed sub jobs.
+    :speech_balloon:
+    `sacct` is especially handy here, because it is easy to spot the failed sub jobs.
 
     !!! question
         - Which sub jobs failed?
@@ -146,9 +150,9 @@
     sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j <slurmjobid>    # replace <slurmjobid> with the actual job ID
     ```
 
-!!! info
-    Note that in this case we cannot use the `-X` option as we want to
-    see the memory usage for each step.
+:thought_balloon:
+Note that in this case we cannot use the `-X` option as we want to
+see the memory usage for each step.
 
 ## Adjusting the job-file
 
@@ -161,9 +165,9 @@
     #SBATCH --mem=2000
     ```
 
-    !!! warning
-        If you have limited time, you can skip to step 4 and use the job ID `1225699`
-        (it is the same job with adjusted resource requests).
+    :point_up_tone1:
+    If you have limited time, you can skip to step 4 and use the job ID `1225699`
+    (it is the same job with adjusted resource requests).
 
 3. Re-run only the failed sub jobs by changing the `--array` line:
 
