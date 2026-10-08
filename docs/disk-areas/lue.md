@@ -4,7 +4,7 @@
     - Efficient ways to check where you have a lot of files and data
       on Roihu
 
-:speech_bubble:
+:speech_balloon:
 CSC has developed a tool called [LUE](https://docs.csc.fi/support/tutorials/lue/)
 for keeping track of how much data/files one has on the disk. Conventional tools such
 as `stat` or `du` are slow and heavy on the parallel file system, while `lue` is
