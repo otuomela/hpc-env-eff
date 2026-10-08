@@ -1,21 +1,21 @@
 # Where do I have a lot of data?
 
-!!! abstract "In this tutorial you"
-    - Familiarize yourself with efficient ways to check where you
-      have a lot of files and data on Roihu.
+!!! abstract "In this tutorial you will learn"
+    - Efficient ways to check where you have a lot of files and data
+      on Roihu
 
-!!! note
-    CSC has developed a tool called [LUE](https://docs.csc.fi/support/tutorials/lue/)
-    for keeping track of how much data/files one has on the disk. Conventional tools such
-    as `stat` or `du` are slow and heavy on the parallel file system, while `lue` is
-    significantly faster. This comes with a slight loss in accuracy, although this is
-    usually not a problem. See [Docs CSC](https://docs.csc.fi/support/tutorials/lue/#short-prelude)
-    for a list of possible caveats.
+:speech_bubble:
+CSC has developed a tool called [LUE](https://docs.csc.fi/support/tutorials/lue/)
+for keeping track of how much data/files one has on the disk. Conventional tools such
+as `stat` or `du` are slow and heavy on the parallel file system, while `lue` is
+significantly faster. This comes with a slight loss in accuracy, although this is
+usually not a problem. See [Docs CSC](https://docs.csc.fi/support/tutorials/lue/#short-prelude)
+for a list of possible caveats.
 
-!!! warning
-    Keeping track of how much data/files one has on the disk and (re)moving it in a timely manner
-    (e.g. to [Allas](https://docs.csc.fi/data/Allas/)) is very important to ensure a more performant
-    file system for all users.
+:point_up_tone1:
+Keeping track of how much data/files one has on the disk and (re)moving it in a timely manner
+(e.g. to [Allas](https://docs.csc.fi/data/Allas/)) is very important to ensure a more performant
+file system for all users.
 
 ## Querying where you have a lot of files and data
 
@@ -37,13 +37,13 @@
     lue $HOME
     ```
 
-    !!! tip
-        You can also try some other directory e.g. in your project's `/scratch`. However,
-        **don't run the tool on the whole project folder** (e.g. `/scratch/project_2001234`),
-        but choose instead a smaller subdirectory where you think you might have a lot of files or data.
-        Some operations can be both slow and heavy on the file system! By default, the tool will only
-        fetch size data for 30 minutes before quitting. Alternatively, you can
-        [limit the runtime of the tool as instructed in Docs CSC](https://docs.csc.fi/support/tutorials/lue/#limiting-the-runtime).
+    :bulb:
+    You can also try some other directory e.g. in your project's `/scratch`. However,
+    **don't run the tool on the whole project folder** (e.g. `/scratch/project_2001234`),
+    but choose instead a smaller subdirectory where you think you might have a lot of files or data.
+    Some operations can be both slow and heavy on the file system! By default, the tool will only
+    fetch size data for 30 minutes before quitting. Alternatively, you can
+    [limit the runtime of the tool as instructed in Docs CSC](https://docs.csc.fi/support/tutorials/lue/#limiting-the-runtime).
 
 4. The first lines of the output should look like:
 
@@ -66,15 +66,15 @@
     lue --count $HOME
     ```
 
-!!! tip
-    To get more detailed information, use the `--display-level=<n>` flag to show a deeper directory hierarchy.
-    Alternatively, rerun the query for individual subdirectories.
+:bulb:
+To get more detailed information, use the `--display-level=<n>` flag to show a deeper directory hierarchy.
+Alternatively, rerun the query for individual subdirectories.
 
-!!! warning
-    LUE stores a very simple cache of runs in `$TMPDIR`. This means that you can run a query on any
-    subdirectories without actually re-querying anything from the file system. To rerun the query from
-    scratch, add the flag `--refresh`. This might be needed to get a more accurate estimate of the file
-    count e.g. if the cache file is old.
+:point_up_tone1:
+LUE stores a very simple cache of runs in `$TMPDIR`. This means that you can run a query on any
+subdirectories without actually re-querying anything from the file system. To rerun the query from
+scratch, add the flag `--refresh`. This might be needed to get a more accurate estimate of the file
+count e.g. if the cache file is old.
 
 ## More information
 

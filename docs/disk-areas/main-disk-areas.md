@@ -1,29 +1,30 @@
 # Where to store files in CSC's computing environment?
 
-!!! abstract "In this tutorial you"
-    - Familiarize yourself with personal and project-specific disk areas and
-      their quotas on CSC supercomputers.
-    - Learn how to share your files, such as software installations and data,
-      with other project members on CSC supercomputers.
+!!! abstract "In this tutorial you will learn"
+    - About personal and project-specific disk areas and their quotas
+      on CSC supercomputers
+    - How to share your files, such as software installations and data,
+      with other project members on CSC supercomputers
 
-!!! note
-    Each user of CSC supercomputers (Roihu and LUMI) has access to different
-    disk areas (or directories) for managing their data. Each disk area has
-    its own specific purpose.
+:speech_balloon:
+Each user of CSC supercomputers (Roihu and LUMI) has access to different
+disk areas (or directories) for managing their data. Each disk area has
+its own specific purpose.
 
-    Active data files needed for computational simulations and analyses should
-    be stored and shared in directories under `/scratch` while any software
-    installations and binaries should be shared under the `/projappl` directory.
+:speech_balloon:
+Active data files needed for computational simulations and analyses should
+be stored and shared in directories under `/scratch` while any software
+installations and binaries should be shared under the `/projappl` directory.
 
-!!! danger
-    None of the disk areas on Roihu and LUMI are automatically backed up by CSC.
-    Data that is accidentally deleted by the user or otherwise lost cannot be recovered.
-    It is the user's own responsibility to keep backup copies of any data they want to preserve.
+:bangbang:
+None of the disk areas on Roihu and LUMI are automatically backed up by CSC.
+Data that is accidentally deleted by the user or otherwise lost cannot be recovered.
+It is the user's own responsibility to keep backup copies of any data they want to preserve.
 
-!!! danger
-    The `/scratch` disk area on Roihu is periodically cleaned of files that have not been
-    accessed in 180 (default) or 90 (>5 TiB quota) days. See the
-    [Docs CSC](https://docs.csc.fi/computing/usage-policy/#disk-cleaning) for details.
+:bangbang:
+The `/scratch` disk area on Roihu is periodically cleaned of files that have not been
+accessed in 180 (default) or 90 (>5 TiB quota) days. See the
+[Docs CSC](https://docs.csc.fi/computing/usage-policy/#disk-cleaning) for details.
 
 ## Identify your personal and project-specific directories on Roihu supercomputer
 
@@ -58,32 +59,32 @@
     ls
     ```
 
-!!! note
-    These directories can be briefly summarized as follows:
+:speech_balloon:
+These directories can be briefly summarized as follows:
 
-    - User-specific directory (i.e. your personal home folder)
-        - Your home directory (path stored in environment variable `$HOME`)
-        - The default directory when you log in to Roihu/LUMI
-        - You can store configuration files and other minor data for personal use
-    - Project-specific directories:
-        - The project's `/scratch` and `/projappl` directories
-        - Each project has its own `/scratch` disk space where most computational
-          tasks are performed. The `/scratch` area is a temporary space not intended
-          for long-term data storage! Please move inactive data to e.g.
-          [Allas](https://docs.csc.fi/data/Allas/).
-        - `/projappl` directory on the other hand is mainly for storing and
-          sharing compiled applications and libraries etc. with other members of the project.
+- User-specific directory (i.e. your personal home folder)
+    - Your home directory (path stored in environment variable `$HOME`)
+    - The default directory when you log in to Roihu/LUMI
+    - You can store configuration files and other minor data for personal use
+- Project-specific directories:
+    - The project's `/scratch` and `/projappl` directories
+    - Each project has its own `/scratch` disk space where most computational
+      tasks are performed. The `/scratch` area is a temporary space not intended
+      for long-term data storage! Please move inactive data to e.g.
+      [Allas](https://docs.csc.fi/data/Allas/).
+    - `/projappl` directory on the other hand is mainly for storing and
+      sharing compiled applications and libraries etc. with other members of the project.
 
 ## Sharing binaries and data files
 
-!!! note
-    Data transfer between two supercomputers can be done e.g. with `rsync`.
+:speech_balloon:
+Data transfer between two supercomputers can be done e.g. with `rsync`.
 
 ### Download the example files
 
-!!! warning
-    In this example you will *download* data from
-    [Allas](https://docs.csc.fi/data/Allas/) object storage.
+:point_up_tone1:
+In this example you will *download* data from
+[Allas](https://docs.csc.fi/data/Allas/) object storage.
 
 1. Move to your home folder:
 
@@ -91,9 +92,9 @@
     cd
     ```
 
-    !!! note
-        If you know the files are large, you should consider downloading
-        them directly to `/scratch`.
+    :bulb:
+    If you know the files are large, you should consider downloading
+    them directly to `/scratch`.
 
 2. Download an example program package (`ggplot2_3.3.3_Rprogramme.tar.gz`) and 
    a data file (`Merged.fasta`) from the Allas object storage
@@ -144,9 +145,9 @@ Let's assume that
 
 ### Copying files from Roihu to LUMI (optional, requires a LUMI project)
 
-!!! note
-    For this part you must ensure you have forwarded your SSH agent to Roihu,
-    otherwise you will not be able to connect to LUMI.
+:point_up_tone1:
+For this part you must ensure you have forwarded your SSH agent to Roihu,
+otherwise you will not be able to connect to LUMI.
 
 1. Check if your SSH keys are available on Roihu using command `ssh-add -L`.
 2. If so, it will print your public key. Proceed to step 4.
@@ -183,17 +184,17 @@ Let's assume that
 
 ## More information
 
-!!! tip
-    You can use your folder under `/scratch` for the rest of the tutorials.
-    You can save the path using an [alias](https://www.shell-tips.com/bash/alias/)
-    (with `cd` or `echo`) or somewhere in your notes.
+:bulb:
+You can use your folder under `/scratch` for the rest of the tutorials.
+You can save the path using an [alias](https://www.shell-tips.com/bash/alias/)
+(with `cd` or `echo`) or somewhere in your notes.
 
-!!! tip
-    It is sometimes required to export the paths of the `/scratch` or `/projappl`
-    directories in environment variables (until logout). This can be done with
-    the following commands:
+:bulb:
+It is sometimes required to export the paths of the `/scratch` or `/projappl`
+directories in environment variables (until logout). This can be done with
+the following commands:
 
-    ```bash
-    export PROJAPPL=/projappl/<project>/   # replace <project> with your CSC project, e.g. project_2001234
-    export SCRATCH=/scratch/<project>/   # replace <project> with your CSC project, e.g. project_2001234
-    ```
+```bash
+export PROJAPPL=/projappl/<project>/   # replace <project> with your CSC project, e.g. project_2001234
+export SCRATCH=/scratch/<project>/   # replace <project> with your CSC project, e.g. project_2001234
+```
