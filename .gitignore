@@ -9,3 +9,6 @@ site/
 
 # macOS metadata
 .DS_Store
+
+# Generated slides
+docs/slides/

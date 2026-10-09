@@ -7,6 +7,12 @@
     This document is a simplified version of
     [the accounts and projects guide in docs.csc.fi](https://docs.csc.fi/accounts/).
 
+??? abstract "Slides"
+
+    <iframe src="../../slides/00_account_and_project.html" loading="lazy"
+        style="width:100%; aspect-ratio:16/9; border:0" allowfullscreen></iframe>
+    [Open fullscreen](../../slides/00_account_and_project.html){ target=_blank }
+
 ## Create a CSC account
 
 :speech_balloon:
