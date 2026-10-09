@@ -109,6 +109,6 @@ There are three main ways to do this (we used the second already).
 - Include the path in your Perl script with `use lib`:
 
     ```perl
-    use lib '/projappl/<project>/$USER/myperl/lib/perl5';
+    use lib "/projappl/<project>/$ENV{USER}/myperl/lib/perl5";
     use My::Module;
     ```

@@ -166,6 +166,12 @@ HyperQueue.
     eval "${line}"
     ```
 
+6. Make the script executable:
+
+    ```bash
+    chmod +x run_task.sh
+    ```
+
 ### Run the HyperQueue task array
 
 :speech_balloon:

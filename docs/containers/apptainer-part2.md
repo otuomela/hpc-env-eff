@@ -149,7 +149,7 @@ name) on the host before invoking the container.
 4. If you need to pass environment variables to a container, in most cases it is
    easiest just to set them on the host. If this is not possible, you need to make
    sure that variable names instead of their values are passed on to the
-   container, e.g:
+   container, e.g.:
 
     ```bash
     apptainer exec tutorial.sif bash -c 'echo $TEST2'

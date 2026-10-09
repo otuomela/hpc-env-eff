@@ -76,6 +76,6 @@ You can read more about `scp` and moving files from
 
 :speech_balloon:
 One way to display `.html` files on Roihu is to go through the Allas object storage service.
-After configuring Allas, there's `a-commands` that enable publishing files on the internet.
+After configuring Allas, there are `a-commands` that enable publishing files on the internet.
 This is instructed in the
 [Allas tutorial](../allas/allas-basics.md).

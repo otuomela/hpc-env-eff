@@ -15,8 +15,10 @@ before one can log in to Roihu after creating a new project and adding services.
 :bangbang:
 In order to
 [log in with SSH from the command line](#connecting-with-ssh-from-the-command-line),
-you must have also set up SSH keys and uploaded your public key to MyCSC.
-[See the previous tutorial](ssh.md).
+you must have also set up SSH keys, uploaded your public key to MyCSC
+and obtained an SSH certificate.
+[See the previous tutorial on SSH keys](ssh.md) and
+[the tutorial on certificates](certificate.md).
 
 ## Roihu web interface
 
@@ -136,7 +138,7 @@ i.e. programs that you can use to connect to the supercomputers.
         - On macOS systems, you should add the following lines to the `~/.ssh/config` file:
 
             ```text
-            Host *
+            Host roihu-*.csc.fi
                 UseKeychain no
                 AddKeysToAgent yes
             ```

@@ -39,7 +39,7 @@ starting late or running longer than eight hours.
    or any other text file you have in Allas:
 
     ```bash
-    a-list <project_number>_$USER  # replace <project_number> with your CSC project number, e.g. 2001234, to match the bucket you created earlier
+    a-list <project_number>-$USER  # replace <project_number> with your CSC project number, e.g. 2001234, to match the bucket you created earlier
     ```
 
 3. Create a new batch job script. First open a new text file with the command:
@@ -49,7 +49,7 @@ starting late or running longer than eight hours.
     ```
 
 4. Copy one of the batch job scripts below to the text file you are editing.
-   Replace `<project_number>_$USER` to match your bucket name and `<filename>`
+   Replace `<project_number>-$USER` to match your bucket name and `<filename>`
    with the name of the file you have in Allas. Remember to also define your
    billing project (`--account`).
 
@@ -65,7 +65,7 @@ starting late or running longer than eight hours.
         #SBATCH --output=allas_output_%j.txt     # Name of the output-file
         #SBATCH --error=allas_errors_%j.txt      # Name of the error-file
         
-        bucketname=<project_number>_$USER        # Replace with your bucket name, e.g. 2001234_username
+        bucketname=<project_number>-$USER        # Replace with your bucket name, e.g. 2001234-username
         filename=<filename>                      # Replace with your file name
         
         a-get $bucketname/$filename              # Bucket name / file name
@@ -90,7 +90,7 @@ starting late or running longer than eight hours.
         #SBATCH --output=allas_output_%j.txt     # Name of the output-file.
         #SBATCH --error=allas_errors_%j.txt      # Name of the error-file.
           
-        bucketname=<project_number>_$USER        # Replace with your bucket name, e.g. 2001234_username
+        bucketname=<project_number>-$USER        # Replace with your bucket name, e.g. 2001234-username
         filename=<filename>                      # Replace with your file name
           
         rclone copy s3allas:$bucketname/$filename ./
@@ -116,7 +116,7 @@ starting late or running longer than eight hours.
 
     ```bash
     squeue -u $USER
-    a-list <project_number>_$USER    # replace <project_number> with your CSC project number, e.g. 2001234, to match your bucket
+    a-list <project_number>-$USER    # replace <project_number> with your CSC project number, e.g. 2001234, to match your bucket
     ```
 
 ## Using the legacy Swift protocol
@@ -175,7 +175,7 @@ however, the job may still be queuing or running once the connection expires.
     #SBATCH --output=allas_output_%j.txt     # Name of the output-file.
     #SBATCH --error=allas_errors_%j.txt      # Name of the error-file.
    
-    bucketname=<project_number>_$USER        # Replace with your bucket name, e.g. 2001234_username
+    bucketname=<project_number>-$USER        # Replace with your bucket name, e.g. 2001234-username
     filename=<filename>                      # Replace with your file name
    
     # Make sure the connection to Allas is open

@@ -47,7 +47,7 @@ decrease load on the Slurm batch job scheduler.
     ```
 
     :bangbang:
-    In case you are planning to use Snakemake on LUMI supercomputer, you
+    In case you are planning to use Snakemake on the LUMI supercomputer, you
     can use CSC module installations as below:
 
     ```bash
@@ -62,7 +62,7 @@ decrease load on the Slurm batch job scheduler.
     ```bash
     # snakemake version 7.x.x
     snakemake --cluster "hq submit  ..."
-    # snakemake version 8.x.x
+    # snakemake version 8.x.x and newer
     snakemake --executor cluster-generic --cluster-generic-submit-cmd "hq submit ..."
     ```
 

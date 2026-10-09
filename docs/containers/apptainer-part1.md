@@ -16,7 +16,7 @@ sinteractive --account <project>  # replace <project> with your CSC project, e.g
 1. Download a test container image from Allas:
 
     ```bash
-    wget  https://a3s.fi/saren-2001659-pub/tutorial.sif
+    wget https://a3s.fi/saren-2001659-pub/tutorial.sif
     ls -lh tutorial.sif
     ```
 

@@ -95,8 +95,8 @@ environments.
 
 :point_up_tone1:
 Installing software and containers will be discussed more in sections
-[8](PLACEHOLDER_LINK_TO_INSTALLING)
-and [9](PLACEHOLDER_LINK_TO_CONTAINERS).
+[9](../installing/python.md)
+and [10](../containers/replicating-conda.md).
 Feel free to return to this tutorial later.
 
 1. Look for the MetaBAT2 application like we did above with HTSeq:

@@ -69,6 +69,7 @@ nav = [
     "installing/perl.md",
     "installing/java.md",
     "installing/cmake.md",
+    "installing/compilers.md"
     ]
   },
   {
