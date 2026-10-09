@@ -70,6 +70,16 @@ nav = [
     "installing/java.md",
     "installing/cmake.md",
     ]
+  },
+  {
+    "Containers and Apptainer" = [
+    "containers/apptainer-part1.md",
+    "containers/apptainer-part2.md",
+    "containers/running-installed.md",
+    "containers/getting-containers.md",
+    "containers/replicating-conda.md",
+    "containers/creating-containers.md"
+    ]
   }
 ]
 
