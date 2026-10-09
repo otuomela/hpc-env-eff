@@ -25,7 +25,7 @@ using `sinteractive` instead (or by opening a compute node shell in the
 [Roihu web interface](https://www.roihu.csc.fi)).
 
 :bangbang:
-Naturally, computationally heavy tasks should be never ran on the login
+Naturally, computationally heavy tasks should never be run on the login
 nodes.
 
 :bulb:

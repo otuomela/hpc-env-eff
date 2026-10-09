@@ -16,12 +16,13 @@ A pre-installed R environment is available on Roihu.
 
 1. To check available module versions, run:
 
-    ``` bash
+    ```bash
     module spider r-env
     ```
 
 2. There are several ways to use R in `r-env` on Roihu:
-    - Interactive jobs on a compute node, using either the R console or RStudio  
+
+    - Interactive jobs on a compute node, using either the R console or RStudio
 
         :bulb:
         The easiest way to launch RStudio is to use the Roihu web interface at
@@ -34,7 +35,7 @@ A pre-installed R environment is available on Roihu.
     For example, to launch the R console in an interactive job, open a shell
     with `sinteractive` and then
 
-    ``` bash
+    ```bash
     module load r-env
     start-r
     ```
@@ -55,16 +56,20 @@ package is available is trying to load it with the command
 
 ## How to install an R package on Roihu
 
-- Note that your own package installations are:
-    - project specific
-    - R version specific
-    - located in the `/projappl` directory of your project
+:point_up_tone1:
+Note that your own package installations are:
+
+- project specific
+- R version specific
+- located in the `/projappl` directory of your project
+
+Follow these steps:
 
 1. Create a folder for your R packages in `/projappl` (open a login node shell
    in the [Roihu web interface](https://www.roihu.csc.fi/) or log in to Roihu
    with SSH):
 
-    ``` bash
+    ```bash
     cd /projappl/<project>  # replace <project> with your CSC project, e.g. project_2001234
     mkdir project_rpackages_<rversion>
     ```
@@ -74,7 +79,7 @@ package is available is trying to load it with the command
     2. ... or launch the R console in an interactive shell session:
 
         ```bash
-        sinteractive 
+        sinteractive
         module load r-env
         start-r
         ```
@@ -83,7 +88,7 @@ package is available is trying to load it with the command
    will look for packages:
 
     ```r
-    .libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths())) 
+    .libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
     ```
 
 4. Assign `libpath` to point to this directory (not strictly necessary, but can
@@ -115,13 +120,13 @@ reminded of the location at the start of every R session or script where you
 want to use the project-specific package by running this command again:
 
 ```r
-.libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths())) 
+.libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
 ```
 
 :bulb:
 Instead of installing a missing package for your own project, you can ask
 for a module-wide installation for all users by contacting
-[CSC Service Desk](mailto:servicedesk@csc.fi).
+the [CSC Service Desk](mailto:servicedesk@csc.fi).
 
 ## More information
 

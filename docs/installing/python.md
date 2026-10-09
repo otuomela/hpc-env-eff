@@ -13,7 +13,7 @@ This tutorial is done on **Roihu**, which requires that:
 
 :speech_balloon:
 To run Python applications, first load a suitable Python module. CSC has
-several Python environments available with focus on different application
+several Python environments available with a focus on different application
 areas, e.g. [data science and machine learning](https://docs.csc.fi/apps/python-data/),
 as well as [geoinformatics](https://docs.csc.fi/apps/python-geo/).
 
@@ -67,7 +67,7 @@ Let's install a library called `coverage`.
 
 2. The error message shows that the library is not available:
 
-    ```bash
+    ```text
     Traceback (most recent call last):
       File "<string>", line 1, in <module>
     ModuleNotFoundError: No module named 'coverage'
@@ -185,7 +185,7 @@ Let's create a containerized Conda environment using the Tykky wrapper.
 
 :bulb:
 Adding this to your `$PATH` allows you to call Python and all other
-executables installed by Conda in the same way as you had activated a
+executables installed by Conda as if you had activated a
 non-containerized Conda environment.
 
 :thought_balloon:

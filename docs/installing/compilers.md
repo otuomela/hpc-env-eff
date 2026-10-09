@@ -15,7 +15,7 @@ Roihu has separate **CPU** and **GPU** partitions with different processor archi
 AMD (x86) on Roihu-CPU and NVIDIA Grace (ARM) on Roihu-GPU. Binaries built on one side are
 **not** compatible with the other, so always compile on the login node matching where you
 intend to run. This tutorial covers **Roihu-CPU** only. Refer to
-[Compiling applications in Roihu](https://docs.csc.fi/computing/compiling-roihu/) for 
+[Compiling applications in Roihu](https://docs.csc.fi/computing/compiling-roihu/) for
 detailed information.
 
 ## Overview
@@ -33,7 +33,7 @@ to intermediate, or even aggressive, while ensuring that results produced by
 the program remain correct and that the performance actually improves.
 
 On Roihu-CPU, "safe" optimization also includes an architecture flag, since the
-compiler needs to be told which CPU to target to generate the most efficient 
+compiler needs to be told which CPU to target to generate the most efficient
 instructions:
 
 | Optimization level | GNU (`gcc`/`g++`/`gfortran`)                   | AMD AOCC (`clang`/`clang++`/`flang`) |
@@ -63,7 +63,7 @@ consider it an illustrative example.
     ```
 
     :point_up_tone1:
-    Own software should normally be installed under `/projappl`, but for the
+    Your own software should normally be installed under `/projappl`, but for the
     sake of this exercise it is sufficient to use `/scratch`.
 
 2. Download the source code from Allas:
@@ -80,14 +80,14 @@ consider it an illustrative example.
     ```
 
 4. First, compile the code using `gcc` without optimizing compiler options:
-   
+
     ```bash
     gcc -fopenmp -o laplacian laplacian.cpp
     ```
 
     - `-o laplacian` instructs the compiler to name the executable output as
       `laplacian`.
-    - `-fopenmp` flag is needed for this code since it uses OpenMP directives.
+    - The `-fopenmp` flag is needed for this code since it uses OpenMP directives.
 
 5. Run the code as (should take about two minutes):
 
@@ -104,10 +104,12 @@ consider it an illustrative example.
     ```
 
 7. Re-run the program for each optimization level.
-    - How much does the performance improve in each case?
-    - Do the results remain the same for all optimization levels?
-    - Does adding `-march=znver5` change anything compared to
-      using `-O2`/`-O3` alone?
+
+    !!! question
+        - How much does the performance improve in each case?
+        - Do the results remain the same for all optimization levels?
+        - Does adding `-march=znver5` change anything compared to
+          using `-O2`/`-O3` alone?
 
 :point_up_tone1:
 Aggressive optimization may result in programs producing less precise or
@@ -135,12 +137,12 @@ of C++. You may download the source code from Allas:
     wget https://a3s.fi/CSC_training/laplacian.F90
     ```
 
-1. Use `gfortran` compiler instead of `gcc`. The previous options are the same
+2. Use `gfortran` compiler instead of `gcc`. The previous options are the same
    for both compilers.
 
-:thought_balloon:
-How does the performance and results compare with the C++ code? Does
-`gfortran` deliver similar improvements as `gcc`?
+!!! question
+    How do the performance and results compare with the C++ code? Does
+    `gfortran` deliver similar improvements as `gcc`?
 
 ## More information
 

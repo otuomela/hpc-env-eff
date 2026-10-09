@@ -2,8 +2,8 @@
 
 !!! abstract "In this tutorial you will learn"
 
-    - How to install CPANM
-    - How to install Perl modules with CPANM
+    - How to install cpanm
+    - How to install Perl modules with cpanm
 
 :speech_balloon:
 Perl scripts and applications do not need installation. They can be simply
@@ -18,7 +18,7 @@ Roihu does not have a `perl` module. A system Perl is available at
 :speech_balloon:
 Sometimes applications may require additional modules to run.
 
-- These "Perl modules", should not be confused with the software modules on CSC
+- These "Perl modules" should not be confused with the software modules on CSC
   supercomputers.
 
 :speech_balloon:
@@ -47,7 +47,7 @@ libraries in CPAN, the easiest method is to use `cpanm`.
       It could be e.g. your project's `/projappl` directory.
     - This is accomplished by setting a few environment variables.
 
-2. Replace the desired path for `PERL_BASE` and run the following:
+2. Set `PERL_BASE` to the desired path and run the following:
 
     ```bash
     export PERL_BASE="/projappl/<project>/$USER/myperl"  # replace <project> with your CSC project, e.g. project_2001234
