@@ -80,6 +80,15 @@ nav = [
     "containers/replicating-conda.md",
     "containers/creating-containers.md"
     ]
+  },
+  {
+    "Speeding up jobs" = [
+    "workflows/scaling.md",
+    "workflows/hyperqueue.md",
+    "workflows/snakemake-ht.md",
+    "workflows/gaussian-hq.md",
+    "workflows/tune-performance.md"
+    ]
   }
 ]
 
